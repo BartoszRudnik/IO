@@ -36,7 +36,15 @@ public class DaneEpidemiologiczne {
     
     @Override
     public String toString(){
-        return null;
+       
+        String tmp = new String();
+        
+        tmp += "idRegionu: " + getIdRegionu();
+        tmp += " LiczbaZakazen: " + getLiczbaZakazen();
+        tmp += " Strefa: " + getStrefa();
+        
+        return tmp;
+        
     }
     
 }

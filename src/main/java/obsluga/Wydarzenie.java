@@ -53,8 +53,18 @@ public class Wydarzenie {
     }
     
     @Override
-    public String toString(){
-      return null;        
+    public String toString() {
+      
+        String tmp = new String();
+        
+        tmp += "Nazwa: " + getNazwa();
+        tmp += " Data: " + getData();
+        tmp += " GodzinaStart: " + getGodzinaStart();
+        tmp += " CzasTrwania: " + getCzasTrwania();
+        tmp += " ID: " + getId();        
+        
+        return tmp;
+        
     }
     
 }

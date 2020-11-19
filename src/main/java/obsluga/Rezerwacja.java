@@ -27,7 +27,14 @@ public class Rezerwacja {
     
     @Override
     public String toString(){
-        return null;
+        
+        String tmp = new String();
+        
+        tmp += "idRezerwacji: " + getIdRezerwacji();
+        tmp += " Wydarzenie: " + getWydarzenie();
+        
+        return tmp;
+        
     }
     
 }

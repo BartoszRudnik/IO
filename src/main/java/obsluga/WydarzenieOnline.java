@@ -18,7 +18,18 @@ public class WydarzenieOnline extends Wydarzenie {
     
     @Override
     public String toString(){
-        return null;
+        
+        String tmp = new String();
+        
+        tmp += "Nazwa: " + getNazwa();
+        tmp += " Data: " + getData();
+        tmp += " GodzinaStart: " + getGodzinaStart();
+        tmp += " CzasTrwania: " + getCzasTrwania();
+        tmp += " ID: " + getId(); 
+        tmp += " LinkDoWydarzenia: " + getLinkDoWydarzenia();
+        
+        return tmp;
+        
     }
     
 }

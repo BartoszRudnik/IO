@@ -18,7 +18,18 @@ public class WydarzenieStacjonarne extends Wydarzenie {
     
     @Override
     public String toString(){
-        return null;
+        
+        String tmp = new String();
+        
+        tmp += "Nazwa: " + getNazwa();
+        tmp += " Data: " + getData();
+        tmp += " GodzinaStart: " + getGodzinaStart();
+        tmp += " CzasTrwania: " + getCzasTrwania();
+        tmp += " ID: " + getId();        
+        tmp += " LiczbaMiejsc: " + getLiczbaMiejsc();
+        
+        return tmp;
+        
     }
     
 }
