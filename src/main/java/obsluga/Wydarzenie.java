@@ -67,19 +67,16 @@ public abstract class Wydarzenie {
     public Wydarzenie(){
         
     }
-    
+
     @Override
     public String toString() {
-      
-        String tmp = new String();
-        
-        tmp += "Nazwa: " + getNazwa();
-        tmp += " Data: " + getData();
-        tmp += " GodzinaStart: " + getGodzinaStart();
-        tmp += " CzasTrwania: " + getCzasTrwania();
-        tmp += " ID: " + getId();        
-        
-        return tmp;
-        
+        return "Wydarzenie{" +
+                "nazwa='" + nazwa + '\'' +
+                ", data='" + data + '\'' +
+                ", godzinaStart='" + godzinaStart + '\'' +
+                ", czasTrwania=" + czasTrwania +
+                ", id=" + id +
+                '}';
     }
+
 }

@@ -1,13 +1,13 @@
 package obsluga;
 
-public class main {
+public class Main {
 
     public static void main(String [] args){
 
         Fabryka fabryka = new FabrykaWydarzen();
 
-        Wydarzenie wydarzenie = null;
-        Wydarzenie wydarzenie2 = null;
+        Wydarzenie wydarzenie;
+        Wydarzenie wydarzenie2;
 
         wydarzenie = fabryka.noweWydarzenie("Online");
         wydarzenie2 = fabryka.noweWydarzenie("Stacjonarne");
