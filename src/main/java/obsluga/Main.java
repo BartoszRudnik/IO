@@ -13,10 +13,11 @@ public class Main {
         wydarzenie2 = fabryka.noweWydarzenie("Stacjonarne");
 
         wydarzenie.setLinkDoWydarzenia("wydarzenieOnline");
+        wydarzenie2.setNazwa("bleble");
         wydarzenie2.setLiczbaMiejsc(50);
 
-        System.out.println(wydarzenie.getLinkDoWydarzenia());
-        System.out.println(wydarzenie2.getLiczbaMiejsc());
+        System.out.println(wydarzenie);
+        System.out.println(wydarzenie2);
 
     }
 
