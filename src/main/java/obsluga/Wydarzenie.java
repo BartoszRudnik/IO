@@ -1,6 +1,6 @@
 package obsluga;
 
-public class Wydarzenie {
+public abstract class Wydarzenie {
     
     protected String nazwa;
     protected String data;
@@ -47,6 +47,22 @@ public class Wydarzenie {
     public void setId(int id){
         this.id = id; 
     }
+
+    public void setLinkDoWydarzenia(String nowyLink){
+
+    }
+
+    public String getLinkDoWydarzenia(){
+        return null;
+    }
+
+    public void setLiczbaMiejsc(int liczbaMiejsc){
+
+    }
+
+    public int getLiczbaMiejsc(){
+        return 0;
+    }
     
     public Wydarzenie(){
         
@@ -66,5 +82,4 @@ public class Wydarzenie {
         return tmp;
         
     }
-    
 }
