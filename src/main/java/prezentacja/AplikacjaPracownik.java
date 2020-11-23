@@ -39,7 +39,7 @@ public class AplikacjaPracownik {
         
     }
     
-    public void ograniczLiczbeUczestnikow(Wydarzenie wydarzenie){
+    public void ograniczLiczbeUczestnikow(int nowyLimit, Wydarzenie wydarzenie){
         
     }
     

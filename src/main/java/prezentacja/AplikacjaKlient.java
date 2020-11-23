@@ -52,7 +52,7 @@ public class AplikacjaKlient {
         return null;
     }
     
-    public boolean sprawdzWolneMiejsca(Wydarzenie wydarzenie){
+    public boolean sprawdzWolneMiejsca(Rezerwacja rezerwacja){
         return false;
     }
     
