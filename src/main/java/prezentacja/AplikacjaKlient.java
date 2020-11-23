@@ -38,7 +38,11 @@ public class AplikacjaKlient {
     
     public AplikacjaKlient(List<Wydarzenie> wydarzenia, List<Rezerwacja> rezerwacje, List<DaneEpidemiologiczne> dane){
         
-    }    
+    }
+
+    public AplikacjaKlient(){
+
+    }
     
     public Rezerwacja rezerwujMiejsce(Wydarzenie wydarzenie){
         return null;
@@ -48,7 +52,7 @@ public class AplikacjaKlient {
         return null;
     }
     
-    public ArrayList<Wydarzenie> filtrujWydarzenia(String typ){
+    public ArrayList<Wydarzenie> filtrujWydarzenia(String typFiltrowania){
         return null;
     }
     

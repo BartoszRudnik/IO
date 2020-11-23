@@ -2,7 +2,6 @@ package prezentacja;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import obsluga.Wydarzenie;
 import obsluga.DaneEpidemiologiczne;
 
@@ -30,12 +29,16 @@ public class AplikacjaPracownik {
     public AplikacjaPracownik(List<Wydarzenie> wydarzenia, List<DaneEpidemiologiczne> dane){
         
     }
+
+    public AplikacjaPracownik(){
+
+    }
     
     public void archiwizujWydarzenie(Wydarzenie wydarzenie){
         
     }
     
-    public void dodajWydarzenie(Wydarzenie wydarzenie){
+    public void dodajWydarzenie(String[] daneWydarzenia){
         
     }
     
@@ -46,6 +49,5 @@ public class AplikacjaPracownik {
     public boolean wyszukajWydarzenie(String dane[]){
         return false;
     }
-    
     
 }

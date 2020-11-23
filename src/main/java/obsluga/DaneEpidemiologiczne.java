@@ -33,6 +33,10 @@ public class DaneEpidemiologiczne {
     public DaneEpidemiologiczne(int idRegionu, int liczbaZakazen, String strefa){
         
     }
+
+    public DaneEpidemiologiczne(){
+
+    }
     
     @Override
     public String toString(){
