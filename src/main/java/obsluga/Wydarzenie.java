@@ -1,10 +1,13 @@
 package obsluga;
 
+import java.util.Objects;
+
 public abstract class Wydarzenie {
     
     protected String nazwa;
     protected String data;
     protected String godzinaStart;
+    protected String typWydarzenia;
     protected int czasTrwania;
     protected int id;
     
@@ -48,6 +51,14 @@ public abstract class Wydarzenie {
         this.id = id; 
     }
 
+    public String getTypWydarzenia(){
+        return this.typWydarzenia;
+    }
+
+    public void setTypWydarzenia(String typWydarzenia){
+        this.typWydarzenia = typWydarzenia;
+    }
+
     public void setLinkDoWydarzenia(String nowyLink){
 
     }
@@ -69,14 +80,20 @@ public abstract class Wydarzenie {
     }
 
     @Override
-    public String toString() {
-        return "Wydarzenie{" +
-                "nazwa='" + nazwa + '\'' +
-                ", data='" + data + '\'' +
-                ", godzinaStart='" + godzinaStart + '\'' +
-                ", czasTrwania=" + czasTrwania +
-                ", id=" + id +
-                '}';
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Wydarzenie)) return false;
+        Wydarzenie that = (Wydarzenie) o;
+        return getCzasTrwania() == that.getCzasTrwania() &&
+                getId() == that.getId() &&
+                Objects.equals(getNazwa(), that.getNazwa()) &&
+                Objects.equals(getData(), that.getData()) &&
+                Objects.equals(getGodzinaStart(), that.getGodzinaStart()) &&
+                Objects.equals(getTypWydarzenia(), that.getTypWydarzenia());
     }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(getNazwa(), getData(), getGodzinaStart(), getTypWydarzenia(), getCzasTrwania(), getId());
+    }
 }

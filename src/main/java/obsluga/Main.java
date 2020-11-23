@@ -1,23 +1,38 @@
 package obsluga;
 
+import prezentacja.AplikacjaPracownik;
+import java.util.ArrayList;
+import java.util.List;
+
 public class Main {
 
     public static void main(String [] args){
 
-        Fabryka fabryka = new FabrykaWydarzen();
+        AplikacjaPracownik aplikacja = new AplikacjaPracownik();
+        List<Wydarzenie> wydarzenia = new ArrayList<>();
 
-        Wydarzenie wydarzenie;
-        Wydarzenie wydarzenie2;
+        aplikacja.setWydarzenia(wydarzenia);
 
-        wydarzenie = fabryka.noweWydarzenie("Online");
-        wydarzenie2 = fabryka.noweWydarzenie("Stacjonarne");
+        aplikacja.dodajWydarzenie(4, "taniec", "20.10.2021", "19:30", "Stacjonarne", 90,1, "-");
+        aplikacja.dodajWydarzenie(4, "taniec", "20.10.2021", "19:30", "Online", 90,1, "-");
 
-        wydarzenie.setLinkDoWydarzenia("wydarzenieOnline");
-        wydarzenie2.setNazwa("bleble");
-        wydarzenie2.setLiczbaMiejsc(50);
+        for(Wydarzenie wyd : wydarzenia){
+            System.out.println(wyd);
+        }
 
-        System.out.println(wydarzenie);
-        System.out.println(wydarzenie2);
+        aplikacja.ograniczLiczbeUczestnikow(20, wydarzenia.get(0));
+        System.out.println();
+
+        for(Wydarzenie wyd : wydarzenia){
+            System.out.println(wyd);
+        }
+
+        aplikacja.archiwizujWydarzenie(wydarzenia.get(0));
+        System.out.println();
+
+        for(Wydarzenie wyd : wydarzenia){
+            System.out.println(wyd);
+        }
 
     }
 

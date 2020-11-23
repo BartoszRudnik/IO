@@ -1,5 +1,7 @@
 package obsluga;
 
+import java.util.Objects;
+
 public class WydarzenieStacjonarne extends Wydarzenie {
     
     private int liczbaMiejsc;
@@ -29,9 +31,12 @@ public class WydarzenieStacjonarne extends Wydarzenie {
                 ", nazwa='" + nazwa + '\'' +
                 ", data='" + data + '\'' +
                 ", godzinaStart='" + godzinaStart + '\'' +
+                ", typWydarzenia='" + typWydarzenia + '\'' +
                 ", czasTrwania=" + czasTrwania +
                 ", id=" + id +
                 '}';
     }
+
+
 
 }

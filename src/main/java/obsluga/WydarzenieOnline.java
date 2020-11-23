@@ -29,6 +29,7 @@ public class WydarzenieOnline extends Wydarzenie {
                 ", nazwa='" + nazwa + '\'' +
                 ", data='" + data + '\'' +
                 ", godzinaStart='" + godzinaStart + '\'' +
+                ", typWydarzenia='" + typWydarzenia + '\'' +
                 ", czasTrwania=" + czasTrwania +
                 ", id=" + id +
                 '}';
