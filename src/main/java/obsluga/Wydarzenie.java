@@ -10,6 +10,7 @@ public abstract class Wydarzenie {
     protected String typWydarzenia;
     protected int czasTrwania;
     protected int id;
+    protected int liczbaRezerwacji = 0;
     
     public String getNazwa(){
         return this.nazwa;
@@ -81,6 +82,14 @@ public abstract class Wydarzenie {
 
     public String getMiejsce(){
         return null;
+    }
+
+    public int getLiczbaRezerwacji() {
+        return liczbaRezerwacji;
+    }
+
+    public void setLiczbaRezerwacji(int liczbaRezerwacji) {
+        this.liczbaRezerwacji = liczbaRezerwacji;
     }
 
     public Wydarzenie(){

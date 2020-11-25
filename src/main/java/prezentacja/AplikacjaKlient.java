@@ -8,15 +8,15 @@ import obsluga.DaneEpidemiologiczne;
 
 public class AplikacjaKlient {
     
-    private List<Wydarzenie> wydarzenia = new ArrayList<>();
-    private List<Rezerwacja> rezerwacje = new ArrayList<>();
-    private List<DaneEpidemiologiczne> daneEpidemiologiczne = new ArrayList<>();
+    private ArrayList<Wydarzenie> wydarzenia = new ArrayList<>();
+    private ArrayList<Rezerwacja> rezerwacje = new ArrayList<>();
+    private ArrayList<DaneEpidemiologiczne> daneEpidemiologiczne = new ArrayList<>();
     
     public List<Wydarzenie> getWydarzenia(){
         return this.wydarzenia;
     }
     
-    public void setWydarzenia(List<Wydarzenie> wydarzenia){
+    public void setWydarzenia(ArrayList<Wydarzenie> wydarzenia){
         this.wydarzenia = wydarzenia;
     }
     
@@ -24,7 +24,7 @@ public class AplikacjaKlient {
         return this.rezerwacje;
     }
     
-    public void setRezerwacje(List<Rezerwacja> rezerwacje){
+    public void setRezerwacje(ArrayList<Rezerwacja> rezerwacje){
         this.rezerwacje = rezerwacje;
     }
     
@@ -32,7 +32,7 @@ public class AplikacjaKlient {
         return this.daneEpidemiologiczne;
     }
     
-    public void setDaneEpidemiologiczne(List<DaneEpidemiologiczne> dane){
+    public void setDaneEpidemiologiczne(ArrayList<DaneEpidemiologiczne> dane){
         this.daneEpidemiologiczne = dane;
     }
     
@@ -44,26 +44,40 @@ public class AplikacjaKlient {
 
     }
     
-    public Rezerwacja rezerwujMiejsce(Wydarzenie wydarzenie){
-        return null;
+    public void rezerwujMiejsce(Wydarzenie wydarzenie, int idRezerwacji){
+
+        Rezerwacja nowaRezerwacja = null;
+
+        nowaRezerwacja.setIdRezerwacji(idRezerwacji);
+        nowaRezerwacja.setWydarzenie(wydarzenie);
+
+        if(sprawdzWolneMiejsca(nowaRezerwacja))
+            rezerwacje.add(nowaRezerwacja);
+        else
+            System.out.println("Brak wolnych miejsc na to wydarzenie");
+
+        aktualizujLiczbeRezerwacji(nowaRezerwacja);
+
     }
     
     public ArrayList<Wydarzenie> zobaczWydarzenia(String nazwaWydarzenia, String typWydarzenia, String miejsceWydarzenia, String dataWydarzenia){
+
+        wyszukiwaczWydarzen wyszukaj = new wyszukiwaczWydarzen(wydarzenia);
 
         ArrayList<Wydarzenie> szukaneWydarzenia = new ArrayList<>();
 
         int liczbaAtrybutow = 0;
 
-        liczbaAtrybutow = liczAtrybutyWydarzenia(nazwaWydarzenia, typWydarzenia, miejsceWydarzenia, dataWydarzenia);
+        liczbaAtrybutow = wyszukaj.liczAtrybutyWydarzenia(nazwaWydarzenia, typWydarzenia, miejsceWydarzenia, dataWydarzenia);
 
         if(liczbaAtrybutow == 4)
-            czteryAtrybuty(nazwaWydarzenia, typWydarzenia, miejsceWydarzenia, dataWydarzenia, szukaneWydarzenia);
+            wyszukaj.czteryAtrybuty(nazwaWydarzenia, typWydarzenia, miejsceWydarzenia, dataWydarzenia, szukaneWydarzenia);
         if(liczbaAtrybutow == 3)
-            trzyAtrybuty(nazwaWydarzenia, typWydarzenia, miejsceWydarzenia, dataWydarzenia, szukaneWydarzenia);
+            wyszukaj.trzyAtrybuty(nazwaWydarzenia, typWydarzenia, miejsceWydarzenia, dataWydarzenia, szukaneWydarzenia);
         if(liczbaAtrybutow == 2)
-            dwaAtrybuty(nazwaWydarzenia, typWydarzenia, miejsceWydarzenia, dataWydarzenia, szukaneWydarzenia);
+            wyszukaj.dwaAtrybuty(nazwaWydarzenia, typWydarzenia, miejsceWydarzenia, dataWydarzenia, szukaneWydarzenia);
         if(liczbaAtrybutow == 1)
-            jedenAtrybut(nazwaWydarzenia, typWydarzenia, miejsceWydarzenia, dataWydarzenia, szukaneWydarzenia);
+            wyszukaj.jedenAtrybut(nazwaWydarzenia, typWydarzenia, miejsceWydarzenia, dataWydarzenia, szukaneWydarzenia);
         else
             System.out.println("Podano zle atrybuty");
 
@@ -80,7 +94,7 @@ public class AplikacjaKlient {
         if(rezerwacja.getWydarzenie().getTypWydarzenia().equalsIgnoreCase("Online"))
             return true;
 
-        int aktualnaLiczbaRezerwacji = rezerwacja.getLiczbaRezerwacji();
+        int aktualnaLiczbaRezerwacji = rezerwacja.getWydarzenie().getLiczbaRezerwacji();
         int maksymalnaLiczbaRezerwacji = rezerwacja.getWydarzenie().getLiczbaMiejsc();
 
         if(maksymalnaLiczbaRezerwacji - aktualnaLiczbaRezerwacji > 0)
@@ -89,182 +103,18 @@ public class AplikacjaKlient {
             return false;
 
     }
-    
-    private boolean wyszukajWydarzenieNazwaWydarzenia(Wydarzenie wydarzenie, String nazwaWydarzenia){
 
-        if(wydarzenie.getNazwa().equalsIgnoreCase(nazwaWydarzenia))
-            return true;
-        else
-            return false;
+    private void aktualizujLiczbeRezerwacji(Rezerwacja rezerwacja){
 
-    }
+        Wydarzenie aktualizowaneWydarzenie = rezerwacja.getWydarzenie();
 
-    private boolean wyszukajWydarzenieTypWydarzenia(Wydarzenie wydarzenie, String typWydarzenia){
+        for(Wydarzenie wydarzenie : wydarzenia){
 
-        if(wydarzenie.getTypWydarzenia().equalsIgnoreCase(typWydarzenia))
-            return true;
-        else
-            return false;
+            if(aktualizowaneWydarzenie.equals(wydarzenie)) {
 
-    }
-
-    private boolean wyszukajWydarzenieMiejsceWydarzenia(Wydarzenie wydarzenie, String miejsceWydarzenia){
-
-        if(wydarzenie.getTypWydarzenia().equalsIgnoreCase("Online"))
-            return false;
-
-        if(wydarzenie.getMiejsce().equalsIgnoreCase(miejsceWydarzenia))
-            return true;
-        else
-            return false;
-
-    }
-
-    private boolean wyszukajWydarzenieDataWydarzenia(Wydarzenie wydarzenie, String dataWydarzenia){
-
-        if(wydarzenie.getData().equalsIgnoreCase(dataWydarzenia))
-            return true;
-        else
-            return false;
-
-    }
-
-    private int liczAtrybutyWydarzenia(String nazwaWydarzenia, String typWydarzenia, String miejsceWydarzenia, String dataWydarzenia) {
-
-        int licz = 0;
-
-        if(!nazwaWydarzenia.isEmpty()){
-            licz++;
-        }
-        if(!typWydarzenia.isEmpty()){
-            licz++;
-        }
-        if(!miejsceWydarzenia.isEmpty()){
-            licz++;
-        }
-        if(!dataWydarzenia.isEmpty()){
-            licz++;
-        }
-
-        return  licz;
-
-    }
-
-    private void czteryAtrybuty(String nazwaWydarzenia, String typWydarzenia, String miejsceWydarzenia, String dataWydarzenia, ArrayList<Wydarzenie> szukaneWydarzenia){
-
-        for(Wydarzenie wyd : wydarzenia) {
-
-            if (wyszukajWydarzenieNazwaWydarzenia(wyd, nazwaWydarzenia) && wyszukajWydarzenieDataWydarzenia(wyd, dataWydarzenia) && wyszukajWydarzenieMiejsceWydarzenia(wyd, miejsceWydarzenia) && wyszukajWydarzenieTypWydarzenia(wyd, typWydarzenia))
-                szukaneWydarzenia.add(wyd);
-
-        }
-
-    }
-
-    private void trzyAtrybuty(String nazwaWydarzenia, String typWydarzenia, String miejsceWydarzenia, String dataWydarzenia, ArrayList<Wydarzenie> szukaneWydarzenia){
-
-        for(Wydarzenie wyd : wydarzenia){
-
-            if(!nazwaWydarzenia.isEmpty() && !typWydarzenia.isEmpty() && !miejsceWydarzenia.isEmpty()){
-
-                if(wyszukajWydarzenieNazwaWydarzenia(wyd, nazwaWydarzenia) && wyszukajWydarzenieTypWydarzenia(wyd, typWydarzenia) && wyszukajWydarzenieMiejsceWydarzenia(wyd, miejsceWydarzenia))
-                    szukaneWydarzenia.add(wyd);
-
-            }
-            else if(!nazwaWydarzenia.isEmpty() && !typWydarzenia.isEmpty() && !dataWydarzenia.isEmpty()){
-
-                if(wyszukajWydarzenieNazwaWydarzenia(wyd, nazwaWydarzenia) && wyszukajWydarzenieTypWydarzenia(wyd, typWydarzenia) && wyszukajWydarzenieDataWydarzenia(wyd, dataWydarzenia))
-                    szukaneWydarzenia.add(wyd);
-
-            }
-            else if(!nazwaWydarzenia.isEmpty() && !miejsceWydarzenia.isEmpty() && !dataWydarzenia.isEmpty()){
-
-                if(wyszukajWydarzenieDataWydarzenia(wyd, dataWydarzenia) && wyszukajWydarzenieNazwaWydarzenia(wyd, nazwaWydarzenia) && wyszukajWydarzenieMiejsceWydarzenia(wyd, miejsceWydarzenia))
-                    szukaneWydarzenia.add(wyd);
-
-            }
-            else if(!typWydarzenia.isEmpty() && !miejsceWydarzenia.isEmpty() && !dataWydarzenia.isEmpty()){
-
-                if(wyszukajWydarzenieTypWydarzenia(wyd, typWydarzenia) && wyszukajWydarzenieMiejsceWydarzenia(wyd, miejsceWydarzenia) && wyszukajWydarzenieDataWydarzenia(wyd, dataWydarzenia))
-                    szukaneWydarzenia.add(wyd);
-
-            }
-
-        }
-
-    }
-
-    private void dwaAtrybuty(String nazwaWydarzenia, String typWydarzenia, String miejsceWydarzenia, String dataWydarzenia, ArrayList<Wydarzenie> szukaneWydarzenia){
-
-        for(Wydarzenie wyd : wydarzenia){
-
-            if(!nazwaWydarzenia.isEmpty() && !typWydarzenia.isEmpty()){
-
-                if(wyszukajWydarzenieNazwaWydarzenia(wyd, nazwaWydarzenia) && wyszukajWydarzenieTypWydarzenia(wyd, typWydarzenia))
-                    szukaneWydarzenia.add(wyd);
-
-            }
-            else if(!nazwaWydarzenia.isEmpty() && !miejsceWydarzenia.isEmpty()){
-
-                if(wyszukajWydarzenieNazwaWydarzenia(wyd, nazwaWydarzenia) && wyszukajWydarzenieMiejsceWydarzenia(wyd, miejsceWydarzenia))
-                    szukaneWydarzenia.add(wyd);
-
-            }
-            else if(!nazwaWydarzenia.isEmpty() && !dataWydarzenia.isEmpty()){
-
-                if(wyszukajWydarzenieNazwaWydarzenia(wyd, nazwaWydarzenia) && wyszukajWydarzenieDataWydarzenia(wyd, dataWydarzenia))
-                    szukaneWydarzenia.add(wyd);
-
-            }
-            else if(!typWydarzenia.isEmpty() && !miejsceWydarzenia.isEmpty()){
-
-                if(wyszukajWydarzenieTypWydarzenia(wyd, typWydarzenia) && wyszukajWydarzenieMiejsceWydarzenia(wyd, miejsceWydarzenia))
-                    szukaneWydarzenia.add(wyd);
-
-            }
-            else if(!typWydarzenia.isEmpty() && !dataWydarzenia.isEmpty()){
-
-                if(wyszukajWydarzenieTypWydarzenia(wyd, typWydarzenia) && wyszukajWydarzenieDataWydarzenia(wyd, dataWydarzenia))
-                    szukaneWydarzenia.add(wyd);
-
-            }
-            else if(!miejsceWydarzenia.isEmpty() && !dataWydarzenia.isEmpty()){
-
-                if(wyszukajWydarzenieMiejsceWydarzenia(wyd, miejsceWydarzenia) && wyszukajWydarzenieDataWydarzenia(wyd, dataWydarzenia))
-                    szukaneWydarzenia.add(wyd);
-
-            }
-
-        }
-
-    }
-
-    private void jedenAtrybut(String nazwaWydarzenia, String typWydarzenia, String miejsceWydarzenia, String dataWydarzenia, ArrayList<Wydarzenie> szukaneWydarzenia){
-
-        for(Wydarzenie wyd : wydarzenia){
-
-            if(!nazwaWydarzenia.isEmpty()){
-
-                if(wyszukajWydarzenieNazwaWydarzenia(wyd, nazwaWydarzenia))
-                    szukaneWydarzenia.add(wyd);
-
-            }
-            else if(!typWydarzenia.isEmpty()){
-
-                if(wyszukajWydarzenieTypWydarzenia(wyd, typWydarzenia))
-                    szukaneWydarzenia.add(wyd);
-
-            }
-            else if(!miejsceWydarzenia.isEmpty()){
-
-                if(wyszukajWydarzenieMiejsceWydarzenia(wyd, miejsceWydarzenia))
-                    szukaneWydarzenia.add(wyd);
-
-            }
-            else if(!dataWydarzenia.isEmpty()){
-
-                if(wyszukajWydarzenieDataWydarzenia(wyd, dataWydarzenia))
-                    szukaneWydarzenia.add(wyd);
+                int nowaLiczbaRezerwacji = wydarzenie.getLiczbaRezerwacji();
+                nowaLiczbaRezerwacji++;
+                wydarzenie.setLiczbaRezerwacji(nowaLiczbaRezerwacji);
 
             }
 

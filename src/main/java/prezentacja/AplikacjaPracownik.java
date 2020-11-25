@@ -48,12 +48,12 @@ public class AplikacjaPracownik {
     
     public void archiwizujWydarzenie(Wydarzenie wydarzenie){
 
-        for(Wydarzenie wyd : wydarzenia){
+        wyszukiwaczWydarzen wyszukiwacz = new wyszukiwaczWydarzen(wydarzenia);
 
-            if( wyd.equals(wydarzenie)){
-                archiwumWydarzen.add(wyd);
-                wydarzenia.remove(wyd);
-            }
+        if(wyszukiwacz.wyszukajWydarzenie(wydarzenie)) {
+
+            archiwumWydarzen.add(wydarzenie);
+            wydarzenia.remove(wydarzenie);
 
         }
 
@@ -81,10 +81,11 @@ public class AplikacjaPracownik {
     
     public void dodajWydarzenie(int liczbaMiejsc, String nazwa, String data, String godzinaStart, String typWydarzenia, int czasTrwania, int id, String linkDoWydarzenia, String miejsce){
 
+        wyszukiwaczWydarzen wyszukiwacz = new wyszukiwaczWydarzen(wydarzenia);
         Wydarzenie wydarzenie = fabryka.noweWydarzenie(typWydarzenia);
         inicjalizujWydarzenie(wydarzenie, liczbaMiejsc, nazwa, data, godzinaStart, typWydarzenia, czasTrwania, id, linkDoWydarzenia, miejsce);
 
-        if(wyszukajWydarzenie(wydarzenie) == true){
+        if(wyszukiwacz.wyszukajWydarzenie(wydarzenie) == true){
             System.out.println("Wydarzenie o podanych atrybutach juz istnieje!");
         }
         else
@@ -99,19 +100,6 @@ public class AplikacjaPracownik {
         }
         else
             System.out.println("Liczbe miejsc mozna ograniczyc wylacznie dla wydarzen stacjonarnych!");
-
-    }
-    
-    public boolean wyszukajWydarzenie(Wydarzenie wydarzenie){
-
-        for(Wydarzenie wyd : wydarzenia){
-
-            if(wydarzenie.equals(wyd))
-                return true;
-
-        }
-
-        return false;
 
     }
     

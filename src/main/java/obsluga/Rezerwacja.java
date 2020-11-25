@@ -3,7 +3,6 @@ package obsluga;
 public class Rezerwacja {
 
     private int idRezerwacji;
-    private int liczbaRezerwacji;
     private Wydarzenie wydarzenie;
     
     public int getIdRezerwacji(){
@@ -20,14 +19,6 @@ public class Rezerwacja {
     
     public void setWydarzenie(Wydarzenie wydarzenie){
         this.wydarzenie = wydarzenie;
-    }
-
-    public int getLiczbaRezerwacji(){
-        return this.liczbaRezerwacji;
-    }
-
-    public void setLiczbaRezerwacji(int liczbaRezerwacji){
-        this.liczbaRezerwacji = liczbaRezerwacji;
     }
     
     public Rezerwacja(int idRezerwacji, Wydarzenie wydarzenie, int liczbaRezerwacji){
