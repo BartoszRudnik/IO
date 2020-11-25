@@ -102,5 +102,9 @@ public class AplikacjaPracownik {
             System.out.println("Liczbe miejsc mozna ograniczyc wylacznie dla wydarzen stacjonarnych!");
 
     }
-    
+
+    public void aktualizujDaneEpidemiologiczne(){
+
+    }
+
 }

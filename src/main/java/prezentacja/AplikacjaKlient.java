@@ -8,15 +8,15 @@ import obsluga.DaneEpidemiologiczne;
 
 public class AplikacjaKlient {
     
-    private ArrayList<Wydarzenie> wydarzenia = new ArrayList<>();
-    private ArrayList<Rezerwacja> rezerwacje = new ArrayList<>();
-    private ArrayList<DaneEpidemiologiczne> daneEpidemiologiczne = new ArrayList<>();
+    private List<Wydarzenie> wydarzenia = new ArrayList<>();
+    private List<Rezerwacja> rezerwacje = new ArrayList<>();
+    private List<DaneEpidemiologiczne> daneEpidemiologiczne = new ArrayList<>();
     
     public List<Wydarzenie> getWydarzenia(){
         return this.wydarzenia;
     }
     
-    public void setWydarzenia(ArrayList<Wydarzenie> wydarzenia){
+    public void setWydarzenia(List<Wydarzenie> wydarzenia){
         this.wydarzenia = wydarzenia;
     }
     
@@ -24,7 +24,7 @@ public class AplikacjaKlient {
         return this.rezerwacje;
     }
     
-    public void setRezerwacje(ArrayList<Rezerwacja> rezerwacje){
+    public void setRezerwacje(List<Rezerwacja> rezerwacje){
         this.rezerwacje = rezerwacje;
     }
     
@@ -46,12 +46,12 @@ public class AplikacjaKlient {
     
     public void rezerwujMiejsce(Wydarzenie wydarzenie, int idRezerwacji){
 
-        Rezerwacja nowaRezerwacja = null;
+        Rezerwacja nowaRezerwacja = new Rezerwacja();
 
         nowaRezerwacja.setIdRezerwacji(idRezerwacji);
         nowaRezerwacja.setWydarzenie(wydarzenie);
 
-        if(sprawdzWolneMiejsca(nowaRezerwacja))
+        if(sprawdzCzyWolneMiejsce(nowaRezerwacja))
             rezerwacje.add(nowaRezerwacja);
         else
             System.out.println("Brak wolnych miejsc na to wydarzenie");
@@ -89,7 +89,7 @@ public class AplikacjaKlient {
         return null;
     }
     
-    public boolean sprawdzWolneMiejsca(Rezerwacja rezerwacja){
+    private boolean sprawdzCzyWolneMiejsce(Rezerwacja rezerwacja){
 
         if(rezerwacja.getWydarzenie().getTypWydarzenia().equalsIgnoreCase("Online"))
             return true;
@@ -101,6 +101,15 @@ public class AplikacjaKlient {
             return true;
         else
             return false;
+
+    }
+
+    public int sprawdzIloscWolnychMiejsc(Wydarzenie wydarzenie){
+
+        if(wydarzenie.getTypWydarzenia().equalsIgnoreCase("Online"))
+            return -1;
+        else
+            return wydarzenie.getLiczbaMiejsc() - wydarzenie.getLiczbaRezerwacji();
 
     }
 

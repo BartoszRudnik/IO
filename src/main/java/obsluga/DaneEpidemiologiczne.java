@@ -2,18 +2,10 @@ package obsluga;
 
 public class DaneEpidemiologiczne {
 
-    private int idRegionu;
-    private int liczbaZakazen;
+    private String miejsce;
     private String strefa;
-    
-    public int getIdRegionu(){
-        return this.idRegionu;
-    }
-    
-    public void setIdRegionu(int idRegionu){
-        this.idRegionu = idRegionu;
-    }
-    
+    private int liczbaZakazen;
+
     public int getLiczbaZakazen(){
         return this.liczbaZakazen;
     }
@@ -29,7 +21,15 @@ public class DaneEpidemiologiczne {
     public void setStrefa(String strefa){
         this.strefa = strefa;
     }
-    
+
+    public String getMiejsce() {
+        return miejsce;
+    }
+
+    public void setMiejsce(String miejsce) {
+        this.miejsce = miejsce;
+    }
+
     public DaneEpidemiologiczne(int idRegionu, int liczbaZakazen, String strefa){
         
     }
@@ -37,18 +37,14 @@ public class DaneEpidemiologiczne {
     public DaneEpidemiologiczne(){
 
     }
-    
+
     @Override
-    public String toString(){
-       
-        String tmp = new String();
-        
-        tmp += "idRegionu: " + getIdRegionu();
-        tmp += " LiczbaZakazen: " + getLiczbaZakazen();
-        tmp += " Strefa: " + getStrefa();
-        
-        return tmp;
-        
+    public String toString() {
+        return "DaneEpidemiologiczne{" +
+                "miejsce='" + miejsce + '\'' +
+                ", liczbaZakazen=" + liczbaZakazen +
+                ", strefa='" + strefa + '\'' +
+                '}';
     }
-    
+
 }
