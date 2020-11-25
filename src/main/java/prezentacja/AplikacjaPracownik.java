@@ -59,7 +59,7 @@ public class AplikacjaPracownik {
 
     }
 
-    private void inicjalizujWydarzenie(Wydarzenie wydarzenie, int liczbaMiejsc, String nazwa, String data, String godzinaStart, String typWydarzenia, int czasTrwania, int id, String linkDoWydarzenia) {
+    private void inicjalizujWydarzenie(Wydarzenie wydarzenie, int liczbaMiejsc, String nazwa, String data, String godzinaStart, String typWydarzenia, int czasTrwania, int id, String linkDoWydarzenia, String miejsce) {
 
         wydarzenie.setNazwa(nazwa);
         wydarzenie.setData(data);
@@ -70,6 +70,7 @@ public class AplikacjaPracownik {
 
         if(typWydarzenia.equalsIgnoreCase("Stacjonarne")){
             wydarzenie.setLiczbaMiejsc(liczbaMiejsc);
+            wydarzenie.setMiejsce(miejsce);
         }
 
         if(typWydarzenia.equalsIgnoreCase("Online")){
@@ -78,10 +79,10 @@ public class AplikacjaPracownik {
 
     }
     
-    public void dodajWydarzenie(int liczbaMiejsc, String nazwa, String data, String godzinaStart, String typWydarzenia, int czasTrwania, int id, String linkDoWydarzenia ){
+    public void dodajWydarzenie(int liczbaMiejsc, String nazwa, String data, String godzinaStart, String typWydarzenia, int czasTrwania, int id, String linkDoWydarzenia, String miejsce){
 
         Wydarzenie wydarzenie = fabryka.noweWydarzenie(typWydarzenia);
-        inicjalizujWydarzenie(wydarzenie, liczbaMiejsc, nazwa, data, godzinaStart, typWydarzenia, czasTrwania, id, linkDoWydarzenia);
+        inicjalizujWydarzenie(wydarzenie, liczbaMiejsc, nazwa, data, godzinaStart, typWydarzenia, czasTrwania, id, linkDoWydarzenia, miejsce);
 
         if(wyszukajWydarzenie(wydarzenie) == true){
             System.out.println("Wydarzenie o podanych atrybutach juz istnieje!");

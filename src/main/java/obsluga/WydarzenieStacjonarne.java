@@ -5,6 +5,7 @@ import java.util.Objects;
 public class WydarzenieStacjonarne extends Wydarzenie {
     
     private int liczbaMiejsc;
+    private String miejsce;
 
     @Override
     public int getLiczbaMiejsc(){
@@ -15,7 +16,17 @@ public class WydarzenieStacjonarne extends Wydarzenie {
     public void setLiczbaMiejsc(int liczbaMiejsc){
         this.liczbaMiejsc = liczbaMiejsc;
     }
-    
+
+    @Override
+    public String getMiejsce(){
+        return this.miejsce;
+    }
+
+    @Override
+    public void setMiejsce(String miejsce){
+        this.miejsce = miejsce;
+    }
+
     public WydarzenieStacjonarne(String nazwa, String data, String godzinaStart, int czasTrwania, int id, int liczbaMiejsc){        
        
     }
@@ -28,6 +39,7 @@ public class WydarzenieStacjonarne extends Wydarzenie {
     public String toString() {
         return "WydarzenieStacjonarne{" +
                 "liczbaMiejsc=" + liczbaMiejsc +
+                ", miejsce='" + miejsce + '\'' +
                 ", nazwa='" + nazwa + '\'' +
                 ", data='" + data + '\'' +
                 ", godzinaStart='" + godzinaStart + '\'' +
@@ -36,7 +48,5 @@ public class WydarzenieStacjonarne extends Wydarzenie {
                 ", id=" + id +
                 '}';
     }
-
-
 
 }

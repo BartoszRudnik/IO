@@ -74,7 +74,15 @@ public abstract class Wydarzenie {
     public int getLiczbaMiejsc(){
         return 0;
     }
-    
+
+    public void setMiejsce(String miejsce){
+
+    }
+
+    public String getMiejsce(){
+        return null;
+    }
+
     public Wydarzenie(){
         
     }

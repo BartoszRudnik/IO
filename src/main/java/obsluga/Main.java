@@ -13,8 +13,8 @@ public class Main {
 
         aplikacja.setWydarzenia(wydarzenia);
 
-        aplikacja.dodajWydarzenie(4, "taniec", "20.10.2021", "19:30", "Stacjonarne", 90,1, "-");
-        aplikacja.dodajWydarzenie(4, "taniec", "20.10.2021", "19:30", "Online", 90,1, "-");
+        aplikacja.dodajWydarzenie(4, "taniec", "20.10.2021", "19:30", "Stacjonarne", 90,1, "-", "Wroclaw");
+        aplikacja.dodajWydarzenie(4, "taniec", "20.10.2021", "19:30", "Online", 90,1, "-", "");
 
         for(Wydarzenie wyd : wydarzenia){
             System.out.println(wyd);
