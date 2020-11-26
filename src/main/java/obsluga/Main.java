@@ -72,8 +72,13 @@ public class Main {
         daneEpidemiologiczne.add(najnowszeDane);
         daneEpidemiologiczne.add(jeszczeNowszeDane);
 
-        System.out.println(klient.filtrujWydarzenia("Zakazenia"));
-        System.out.println(klient.filtrujWydarzenia("Strefa"));
+        System.out.println(klient.filtrujWydarzeniaRosnaco("Zakazenia"));
+        System.out.println(klient.filtrujWydarzeniaRosnaco("Strefa"));
+
+        System.out.println();
+
+        System.out.println(klient.filtrujWydarzeniaMalejaco("Zakazenia"));
+        System.out.println(klient.filtrujWydarzeniaMalejaco("Strefa"));
 
     }
 

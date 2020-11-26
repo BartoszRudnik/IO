@@ -87,7 +87,7 @@ public class AplikacjaKlient {
 
     }
 
-    public List<WydarzenieEpidemia> filtrujWydarzenia(String typFiltrowania){
+    public List<WydarzenieEpidemia> filtrujWydarzeniaRosnaco(String typFiltrowania){
 
         SortowanieWydarzen sortowanie = new SortowanieWydarzen();
         sortowanie.setDaneEpidemiologiczne(daneEpidemiologiczne);
@@ -96,14 +96,39 @@ public class AplikacjaKlient {
         if (typFiltrowania.equalsIgnoreCase("Zakazenia")){
 
             wydarzenieZakazenia = sortowanie.stworzZakazeniaWydarzenie();
-            sortowanie.sortujZakazeniaWydarzenie(wydarzenieZakazenia);
+            sortowanie.sortujZakazeniaWydarzenieRosnaco(wydarzenieZakazenia);
             return wydarzenieZakazenia;
 
         }
         else if(typFiltrowania.equalsIgnoreCase("Strefa")){
 
             wydarzenieStrefa = sortowanie.stworzStrefyWydarzenie();
-            sortowanie.sortujStrefyWydarzenie(wydarzenieStrefa);
+            sortowanie.sortujStrefyWydarzenieRosnaco(wydarzenieStrefa);
+            return wydarzenieStrefa;
+
+        }
+        else
+            return null;
+
+    }
+
+    public List<WydarzenieEpidemia> filtrujWydarzeniaMalejaco(String typFiltrowania){
+
+        SortowanieWydarzen sortowanie = new SortowanieWydarzen();
+        sortowanie.setDaneEpidemiologiczne(daneEpidemiologiczne);
+        sortowanie.setWydarzenia(wydarzenia);
+
+        if (typFiltrowania.equalsIgnoreCase("Zakazenia")){
+
+            wydarzenieZakazenia = sortowanie.stworzZakazeniaWydarzenie();
+            sortowanie.sortujZakazeniaWydarzenieMalejaco(wydarzenieZakazenia);
+            return wydarzenieZakazenia;
+
+        }
+        else if(typFiltrowania.equalsIgnoreCase("Strefa")){
+
+            wydarzenieStrefa = sortowanie.stworzStrefyWydarzenie();
+            sortowanie.sortujStrefyWydarzenieMalejaco(wydarzenieStrefa);
             return wydarzenieStrefa;
 
         }

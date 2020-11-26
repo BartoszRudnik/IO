@@ -57,9 +57,15 @@ public class SortowanieWydarzen {
 
     }
 
-    public void sortujZakazeniaWydarzenie(List<WydarzenieEpidemia> wydarzeniaZakazenia){
+    public void sortujZakazeniaWydarzenieRosnaco(List<WydarzenieEpidemia> wydarzeniaZakazenia){
 
         Collections.sort(wydarzeniaZakazenia);
+
+    }
+
+    public void sortujZakazeniaWydarzenieMalejaco(List<WydarzenieEpidemia> wydarzeniaZakazenia){
+
+        Collections.sort(wydarzeniaZakazenia, Collections.reverseOrder());
 
     }
 
@@ -93,9 +99,15 @@ public class SortowanieWydarzen {
 
     }
 
-    public void sortujStrefyWydarzenie(List<WydarzenieEpidemia> wydarzeniaStrefy){
+    public void sortujStrefyWydarzenieRosnaco(List<WydarzenieEpidemia> wydarzeniaStrefy){
 
         Collections.sort(wydarzeniaStrefy);
+
+    }
+
+    public void sortujStrefyWydarzenieMalejaco(List<WydarzenieEpidemia> wydarzeniaStrefy){
+
+        Collections.sort(wydarzeniaStrefy, Collections.reverseOrder());
 
     }
 
