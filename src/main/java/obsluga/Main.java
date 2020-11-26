@@ -2,7 +2,6 @@ package obsluga;
 
 import prezentacja.AplikacjaKlient;
 import prezentacja.AplikacjaPracownik;
-import prezentacja.epidemiaWydarzenie;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,7 +12,6 @@ public class Main {
 
         AplikacjaPracownik pracownik = new AplikacjaPracownik();
         AplikacjaKlient klient = new AplikacjaKlient();
-        epidemiaWydarzenie test = new epidemiaWydarzenie();
 
         List<DaneEpidemiologiczne> daneEpidemiologiczne = new ArrayList<>();
         List<Wydarzenie> wydarzenia = new ArrayList<>();
@@ -22,8 +20,7 @@ public class Main {
         pracownik.setWydarzenia(wydarzenia);
         klient.setWydarzenia(wydarzenia);
         klient.setRezerwacje(rezerwacje);
-        test.setWydarzenia(wydarzenia);
-        test.setDaneEpidemiologicznes(daneEpidemiologiczne);
+        klient.setDaneEpidemiologiczne(daneEpidemiologiczne);
 
         pracownik.dodajWydarzenie(4, "taniec", "20.10.2021", "19:30", "Stacjonarne", 90,1, "-", "Wroclaw");
         pracownik.dodajWydarzenie(4, "taniec", "23.10.2021", "10:00", "Online", 120,2, "www.taniec.pl", "");
@@ -65,8 +62,7 @@ public class Main {
         daneEpidemiologiczne.add(dane);
         daneEpidemiologiczne.add(najnowszeDane);
 
-        test.stworzLiczbaZakazen();
-        test.sortujLiczbaZakazenMalejaco();
+        System.out.println(klient.filtrujWydarzenia("Zakazenia"));
 
     }
 

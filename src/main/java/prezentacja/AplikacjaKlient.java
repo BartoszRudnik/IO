@@ -11,6 +11,7 @@ public class AplikacjaKlient {
     private List<Wydarzenie> wydarzenia = new ArrayList<>();
     private List<Rezerwacja> rezerwacje = new ArrayList<>();
     private List<DaneEpidemiologiczne> daneEpidemiologiczne = new ArrayList<>();
+    private List<WydarzenieZakazenia> wydarzenieZakazenia = new ArrayList<>();
     
     public List<Wydarzenie> getWydarzenia(){
         return this.wydarzenia;
@@ -32,7 +33,7 @@ public class AplikacjaKlient {
         return this.daneEpidemiologiczne;
     }
     
-    public void setDaneEpidemiologiczne(ArrayList<DaneEpidemiologiczne> dane){
+    public void setDaneEpidemiologiczne(List<DaneEpidemiologiczne> dane){
         this.daneEpidemiologiczne = dane;
     }
     
@@ -85,8 +86,21 @@ public class AplikacjaKlient {
 
     }
 
-    public ArrayList<Wydarzenie> filtrujWydarzenia(String typFiltrowania){
-        return null;
+    public List<WydarzenieZakazenia> filtrujWydarzenia(String typFiltrowania){
+
+        SortowanieWydarzen sortowanie = new SortowanieWydarzen();
+        sortowanie.setDaneEpidemiologiczne(daneEpidemiologiczne);
+        sortowanie.setWydarzenia(wydarzenia);
+
+        if (typFiltrowania.equalsIgnoreCase("Zakazenia")){
+
+            wydarzenieZakazenia = sortowanie.stworzZakazeniaWydarzenie();
+            sortowanie.sortujZakazeniaWydarzenie(wydarzenieZakazenia);
+
+        }
+
+        return wydarzenieZakazenia;
+
     }
     
     private boolean sprawdzCzyWolneMiejsce(Rezerwacja rezerwacja){
