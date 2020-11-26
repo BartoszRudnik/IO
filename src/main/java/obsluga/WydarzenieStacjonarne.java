@@ -50,4 +50,9 @@ public class WydarzenieStacjonarne extends Wydarzenie {
                 '}';
     }
 
+
+    @Override
+    public int compareTo(Wydarzenie o) {
+        return this.id - o.getId();
+    }
 }

@@ -2,7 +2,7 @@ package obsluga;
 
 import java.util.Objects;
 
-public abstract class Wydarzenie {
+public abstract class Wydarzenie implements Comparable<Wydarzenie> {
     
     protected String nazwa;
     protected String data;
