@@ -4,19 +4,11 @@ import obsluga.Wydarzenie;
 
 import java.util.Objects;
 
-public class WydarzenieZakazenia implements Comparable<WydarzenieZakazenia> {
+public class WydarzenieZakazenia extends WydarzenieEpidemia{
 
-    private Wydarzenie wydarzenie;
     private int liczbaZakazen;
 
-    public Wydarzenie getWydarzenie() {
-        return wydarzenie;
-    }
-
-    public void setWydarzenie(Wydarzenie wydarzenie) {
-        this.wydarzenie = wydarzenie;
-    }
-
+    @Override
     public int getLiczbaZakazen() {
         return liczbaZakazen;
     }
@@ -47,7 +39,7 @@ public class WydarzenieZakazenia implements Comparable<WydarzenieZakazenia> {
     }
 
     @Override
-    public int compareTo(WydarzenieZakazenia o) {
+    public int compareTo(WydarzenieEpidemia o) {
         if(this.getLiczbaZakazen() - o.getLiczbaZakazen() == 0)
             return this.getWydarzenie().getId() - o.getWydarzenie().getId();
         else

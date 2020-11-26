@@ -11,7 +11,8 @@ public class AplikacjaKlient {
     private List<Wydarzenie> wydarzenia = new ArrayList<>();
     private List<Rezerwacja> rezerwacje = new ArrayList<>();
     private List<DaneEpidemiologiczne> daneEpidemiologiczne = new ArrayList<>();
-    private List<WydarzenieZakazenia> wydarzenieZakazenia = new ArrayList<>();
+    private List<WydarzenieEpidemia> wydarzenieZakazenia = new ArrayList<>();
+    private List<WydarzenieEpidemia> wydarzenieStrefa = new ArrayList<>();
     
     public List<Wydarzenie> getWydarzenia(){
         return this.wydarzenia;
@@ -86,7 +87,7 @@ public class AplikacjaKlient {
 
     }
 
-    public List<WydarzenieZakazenia> filtrujWydarzenia(String typFiltrowania){
+    public List<WydarzenieEpidemia> filtrujWydarzenia(String typFiltrowania){
 
         SortowanieWydarzen sortowanie = new SortowanieWydarzen();
         sortowanie.setDaneEpidemiologiczne(daneEpidemiologiczne);
@@ -96,10 +97,18 @@ public class AplikacjaKlient {
 
             wydarzenieZakazenia = sortowanie.stworzZakazeniaWydarzenie();
             sortowanie.sortujZakazeniaWydarzenie(wydarzenieZakazenia);
+            return wydarzenieZakazenia;
 
         }
+        else if(typFiltrowania.equalsIgnoreCase("Strefa")){
 
-        return wydarzenieZakazenia;
+            wydarzenieStrefa = sortowanie.stworzStrefyWydarzenie();
+            sortowanie.sortujStrefyWydarzenie(wydarzenieStrefa);
+            return wydarzenieStrefa;
+
+        }
+        else
+            return null;
 
     }
     

@@ -28,9 +28,9 @@ public class SortowanieWydarzen {
         this.daneEpidemiologiczne = daneEpidemiologiczne;
     }
 
-    public List<WydarzenieZakazenia> stworzZakazeniaWydarzenie(){
+    public List<WydarzenieEpidemia> stworzZakazeniaWydarzenie(){
 
-        List<WydarzenieZakazenia> wydarzeniaZakazenia = new ArrayList<>();
+        List<WydarzenieEpidemia> wydarzeniaZakazenia = new ArrayList<>();
 
         for(Wydarzenie wydarzenie : wydarzenia){
 
@@ -41,10 +41,10 @@ public class SortowanieWydarzen {
 
                 if (wydarzenie.getMiejsce().equalsIgnoreCase(dane.getMiejsce())) {
 
-                    WydarzenieZakazenia test = new WydarzenieZakazenia();
-                    test.setLiczbaZakazen(dane.getLiczbaZakazen());
-                    test.setWydarzenie(wydarzenie);
-                    wydarzeniaZakazenia.add(test);
+                    WydarzenieZakazenia noweWydarzenie = new WydarzenieZakazenia();
+                    noweWydarzenie.setLiczbaZakazen(dane.getLiczbaZakazen());
+                    noweWydarzenie.setWydarzenie(wydarzenie);
+                    wydarzeniaZakazenia.add(noweWydarzenie);
                     break;
 
                 }
@@ -57,10 +57,47 @@ public class SortowanieWydarzen {
 
     }
 
-    public void sortujZakazeniaWydarzenie(List<WydarzenieZakazenia> wydarzeniaZakazenia){
+    public void sortujZakazeniaWydarzenie(List<WydarzenieEpidemia> wydarzeniaZakazenia){
 
         Collections.sort(wydarzeniaZakazenia);
 
     }
+
+    public List<WydarzenieEpidemia> stworzStrefyWydarzenie(){
+
+        List<WydarzenieEpidemia> wydarzeniaStrefy = new ArrayList<>();
+
+        for(Wydarzenie wydarzenie : wydarzenia){
+
+            if(wydarzenie.getTypWydarzenia().equalsIgnoreCase("Online"))
+                continue;
+
+            for(DaneEpidemiologiczne dane : daneEpidemiologiczne){
+
+                if (wydarzenie.getMiejsce().equalsIgnoreCase(dane.getMiejsce())) {
+
+                    WydarzenieStrefa noweWydarzenie = new WydarzenieStrefa();
+                    noweWydarzenie.setWydarzenie(wydarzenie);
+                    noweWydarzenie.setIdStrefy(dane.getIdStrefy());
+                    noweWydarzenie.setStrefa(dane.getStrefa());
+                    wydarzeniaStrefy.add(noweWydarzenie);
+                    break;
+
+                }
+
+            }
+
+        }
+
+        return wydarzeniaStrefy;
+
+    }
+
+    public void sortujStrefyWydarzenie(List<WydarzenieEpidemia> wydarzeniaStrefy){
+
+        Collections.sort(wydarzeniaStrefy);
+
+    }
+
 
 }
