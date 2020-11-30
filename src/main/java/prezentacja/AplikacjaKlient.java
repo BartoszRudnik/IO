@@ -1,10 +1,11 @@
 package prezentacja;
 
+import obsluga.DaneEpidemiologiczne;
+import obsluga.Rezerwacja;
+import obsluga.Wydarzenie;
+
 import java.util.ArrayList;
 import java.util.List;
-import obsluga.Wydarzenie;
-import obsluga.Rezerwacja;
-import obsluga.DaneEpidemiologiczne;
 
 public class AplikacjaKlient {
     
@@ -62,26 +63,32 @@ public class AplikacjaKlient {
 
     }
     
-    public ArrayList<Wydarzenie> zobaczWydarzenia(String nazwaWydarzenia, String typWydarzenia, String miejsceWydarzenia, String dataWydarzenia){
+    public List<Wydarzenie> zobaczWydarzenia(String nazwaWydarzenia, String typWydarzenia, String miejsceWydarzenia, String dataWydarzenia){
 
         wyszukiwaczWydarzen wyszukaj = new wyszukiwaczWydarzen(wydarzenia);
-
         ArrayList<Wydarzenie> szukaneWydarzenia = new ArrayList<>();
 
         int liczbaAtrybutow = 0;
 
         liczbaAtrybutow = wyszukaj.liczAtrybutyWydarzenia(nazwaWydarzenia, typWydarzenia, miejsceWydarzenia, dataWydarzenia);
 
-        if(liczbaAtrybutow == 4)
-            wyszukaj.czteryAtrybuty(nazwaWydarzenia, typWydarzenia, miejsceWydarzenia, dataWydarzenia, szukaneWydarzenia);
-        if(liczbaAtrybutow == 3)
-            wyszukaj.trzyAtrybuty(nazwaWydarzenia, typWydarzenia, miejsceWydarzenia, dataWydarzenia, szukaneWydarzenia);
-        if(liczbaAtrybutow == 2)
-            wyszukaj.dwaAtrybuty(nazwaWydarzenia, typWydarzenia, miejsceWydarzenia, dataWydarzenia, szukaneWydarzenia);
-        if(liczbaAtrybutow == 1)
-            wyszukaj.jedenAtrybut(nazwaWydarzenia, typWydarzenia, miejsceWydarzenia, dataWydarzenia, szukaneWydarzenia);
-        else
-            System.out.println("Podano zle atrybuty");
+        try{
+
+            if (liczbaAtrybutow > 4 || liczbaAtrybutow == 0)
+                throw new Exception();
+
+            if(liczbaAtrybutow == 4)
+                wyszukaj.czteryAtrybuty(nazwaWydarzenia, typWydarzenia, miejsceWydarzenia, dataWydarzenia, szukaneWydarzenia);
+            if(liczbaAtrybutow == 3)
+                wyszukaj.trzyAtrybuty(nazwaWydarzenia, typWydarzenia, miejsceWydarzenia, dataWydarzenia, szukaneWydarzenia);
+            if(liczbaAtrybutow == 2)
+                wyszukaj.dwaAtrybuty(nazwaWydarzenia, typWydarzenia, miejsceWydarzenia, dataWydarzenia, szukaneWydarzenia);
+            if(liczbaAtrybutow == 1)
+                wyszukaj.jedenAtrybut(nazwaWydarzenia, typWydarzenia, miejsceWydarzenia, dataWydarzenia, szukaneWydarzenia);
+
+        } catch (Exception e) {
+            System.out.println("Podano zla liczbe atrybutów");
+        }
 
         return szukaneWydarzenia;
 
