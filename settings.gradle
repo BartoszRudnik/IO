@@ -1,1 +1,2 @@
+include ':IO'
 rootProject.name = 'IO'

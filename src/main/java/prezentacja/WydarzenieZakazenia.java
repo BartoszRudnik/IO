@@ -1,7 +1,5 @@
 package prezentacja;
 
-import obsluga.Wydarzenie;
-
 import java.util.Objects;
 
 public class WydarzenieZakazenia extends WydarzenieEpidemia{
@@ -40,8 +38,9 @@ public class WydarzenieZakazenia extends WydarzenieEpidemia{
 
     @Override
     public int compareTo(WydarzenieEpidemia o) {
-        if(this.getLiczbaZakazen() - o.getLiczbaZakazen() == 0)
+        if(this.getLiczbaZakazen() - o.getLiczbaZakazen() == 0){
             return this.getWydarzenie().getId() - o.getWydarzenie().getId();
+        }
         else
             return this.getLiczbaZakazen() - o.getLiczbaZakazen();
     }
