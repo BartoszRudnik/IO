@@ -65,10 +65,10 @@ public class AplikacjaKlient {
     
     public List<Wydarzenie> zobaczWydarzenia(String nazwaWydarzenia, String typWydarzenia, String miejsceWydarzenia, String dataWydarzenia){
 
-        wyszukiwaczWydarzen wyszukaj = new wyszukiwaczWydarzen(wydarzenia);
+        WyszukiwaczWydarzen wyszukaj = new WyszukiwaczWydarzen(wydarzenia);
         ArrayList<Wydarzenie> szukaneWydarzenia = new ArrayList<>();
 
-        int liczbaAtrybutow = 0;
+        int liczbaAtrybutow;
 
         liczbaAtrybutow = wyszukaj.liczAtrybutyWydarzenia(nazwaWydarzenia, typWydarzenia, miejsceWydarzenia, dataWydarzenia);
 
@@ -152,10 +152,7 @@ public class AplikacjaKlient {
         int aktualnaLiczbaRezerwacji = rezerwacja.getWydarzenie().getLiczbaRezerwacji();
         int maksymalnaLiczbaRezerwacji = rezerwacja.getWydarzenie().getLiczbaMiejsc();
 
-        if(maksymalnaLiczbaRezerwacji - aktualnaLiczbaRezerwacji > 0)
-            return true;
-        else
-            return false;
+        return maksymalnaLiczbaRezerwacji - aktualnaLiczbaRezerwacji > 0;
 
     }
 

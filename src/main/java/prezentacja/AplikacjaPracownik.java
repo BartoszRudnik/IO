@@ -1,18 +1,18 @@
 package prezentacja;
 
-import java.util.ArrayList;
-import java.util.List;
-import obsluga.Wydarzenie;
 import obsluga.DaneEpidemiologiczne;
 import obsluga.FabrykaWydarzen;
-import obsluga.WydarzenieStacjonarne;
+import obsluga.Wydarzenie;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class AplikacjaPracownik {
     
     private List<Wydarzenie> wydarzenia;
     private List<Wydarzenie> archiwumWydarzen = new ArrayList<>();
     private List<DaneEpidemiologiczne> daneEpidemiologiczne;
-    private FabrykaWydarzen fabryka = new FabrykaWydarzen();
+    private final FabrykaWydarzen fabryka = new FabrykaWydarzen();
     
     public List<Wydarzenie> getWydarzenia(){
         return this.wydarzenia;
@@ -48,7 +48,7 @@ public class AplikacjaPracownik {
     
     public void archiwizujWydarzenie(Wydarzenie wydarzenie){
 
-        wyszukiwaczWydarzen wyszukiwacz = new wyszukiwaczWydarzen(wydarzenia);
+        WyszukiwaczWydarzen wyszukiwacz = new WyszukiwaczWydarzen(wydarzenia);
 
         if(wyszukiwacz.wyszukajWydarzenie(wydarzenie)) {
 
@@ -81,15 +81,15 @@ public class AplikacjaPracownik {
     
     public void dodajWydarzenie(int liczbaMiejsc, String nazwa, String data, String godzinaStart, String typWydarzenia, int czasTrwania, int id, String linkDoWydarzenia, String miejsce){
 
-        wyszukiwaczWydarzen wyszukiwacz = new wyszukiwaczWydarzen(wydarzenia);
+        WyszukiwaczWydarzen wyszukiwacz = new WyszukiwaczWydarzen(wydarzenia);
         Wydarzenie wydarzenie = fabryka.noweWydarzenie(typWydarzenia);
         inicjalizujWydarzenie(wydarzenie, liczbaMiejsc, nazwa, data, godzinaStart, typWydarzenia, czasTrwania, id, linkDoWydarzenia, miejsce);
 
-        if(wyszukiwacz.wyszukajWydarzenie(wydarzenie) == true){
-            System.out.println("Wydarzenie o podanych atrybutach juz istnieje!");
+        if(!wyszukiwacz.wyszukajWydarzenie(wydarzenie)){
+            wydarzenia.add(wydarzenie);
         }
         else
-            wydarzenia.add(wydarzenie);
+            System.out.println("Wydarzenie o podanych atrybutach juz istnieje!");
 
     }
     

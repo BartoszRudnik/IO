@@ -1,7 +1,5 @@
 package obsluga;
 
-import java.util.Objects;
-
 public class WydarzenieStacjonarne extends Wydarzenie {
     
     private int liczbaMiejsc;

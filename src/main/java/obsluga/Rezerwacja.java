@@ -30,7 +30,7 @@ public class Rezerwacja {
     @Override
     public String toString(){
         
-        String tmp = new String();
+        String tmp = "";
         
         tmp += "idRezerwacji: " + getIdRezerwacji();
         tmp += " Wydarzenie: " + getWydarzenie();

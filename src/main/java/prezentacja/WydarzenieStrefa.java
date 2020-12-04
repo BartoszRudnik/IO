@@ -1,7 +1,5 @@
 package prezentacja;
 
-import obsluga.Wydarzenie;
-
 import java.util.Objects;
 
 public class WydarzenieStrefa extends WydarzenieEpidemia{

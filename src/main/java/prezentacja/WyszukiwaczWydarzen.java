@@ -5,7 +5,7 @@ import obsluga.Wydarzenie;
 import java.util.ArrayList;
 import java.util.List;
 
-public class wyszukiwaczWydarzen {
+public class WyszukiwaczWydarzen {
 
     private List<Wydarzenie> wydarzenia;
 
@@ -17,25 +17,19 @@ public class wyszukiwaczWydarzen {
         this.wydarzenia = wydarzenia;
     }
 
-    public wyszukiwaczWydarzen(List<Wydarzenie> wydarzenia){
+    public WyszukiwaczWydarzen(List<Wydarzenie> wydarzenia){
         this.wydarzenia = wydarzenia;
     }
 
     private boolean wyszukajWydarzenieNazwaWydarzenia(Wydarzenie wydarzenie, String nazwaWydarzenia){
 
-        if(wydarzenie.getNazwa().equalsIgnoreCase(nazwaWydarzenia))
-            return true;
-        else
-            return false;
+        return wydarzenie.getNazwa().equalsIgnoreCase(nazwaWydarzenia);
 
     }
 
     private boolean wyszukajWydarzenieTypWydarzenia(Wydarzenie wydarzenie, String typWydarzenia){
 
-        if(wydarzenie.getTypWydarzenia().equalsIgnoreCase(typWydarzenia))
-            return true;
-        else
-            return false;
+        return wydarzenie.getTypWydarzenia().equalsIgnoreCase(typWydarzenia);
 
     }
 
@@ -44,19 +38,13 @@ public class wyszukiwaczWydarzen {
         if(wydarzenie.getTypWydarzenia().equalsIgnoreCase("Online"))
             return false;
 
-        if(wydarzenie.getMiejsce().equalsIgnoreCase(miejsceWydarzenia))
-            return true;
-        else
-            return false;
+        return wydarzenie.getMiejsce().equalsIgnoreCase(miejsceWydarzenia);
 
     }
 
     private boolean wyszukajWydarzenieDataWydarzenia(Wydarzenie wydarzenie, String dataWydarzenia){
 
-        if(wydarzenie.getData().equalsIgnoreCase(dataWydarzenia))
-            return true;
-        else
-            return false;
+        return wydarzenie.getData().equalsIgnoreCase(dataWydarzenia);
 
     }
 
