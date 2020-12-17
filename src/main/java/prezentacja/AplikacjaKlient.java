@@ -54,12 +54,14 @@ public class AplikacjaKlient {
         nowaRezerwacja.setIdRezerwacji(idRezerwacji);
         nowaRezerwacja.setWydarzenie(wydarzenie);
 
-        if(sprawdzCzyWolneMiejsce(nowaRezerwacja))
+        if(sprawdzCzyWolneMiejsce(nowaRezerwacja)) {
+
             rezerwacje.add(nowaRezerwacja);
+            aktualizujLiczbeRezerwacji(nowaRezerwacja);
+
+        }
         else
             System.out.println("Brak wolnych miejsc na to wydarzenie");
-
-        aktualizujLiczbeRezerwacji(nowaRezerwacja);
 
     }
     
