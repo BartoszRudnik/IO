@@ -25,8 +25,16 @@ public class WydarzenieStacjonarne extends Wydarzenie {
         this.miejsce = miejsce;
     }
 
-    public WydarzenieStacjonarne(String nazwa, String data, String godzinaStart, int czasTrwania, int id, int liczbaMiejsc){        
-       
+    public WydarzenieStacjonarne(String nazwa, String data, String godzinaStart, int czasTrwania, int id, int liczbaMiejsc){
+
+        this.nazwa = nazwa;
+        this.data = data;
+        this.godzinaStart = godzinaStart;
+        this.czasTrwania = czasTrwania;
+        this.id = id;
+        this.liczbaMiejsc = liczbaMiejsc;
+        this.typWydarzenia = "Stacjonarne";
+
     }
 
     public WydarzenieStacjonarne(){
@@ -48,9 +56,9 @@ public class WydarzenieStacjonarne extends Wydarzenie {
                 '}';
     }
 
-
     @Override
     public int compareTo(Wydarzenie o) {
         return this.id - o.getId();
     }
+
 }

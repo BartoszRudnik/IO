@@ -15,7 +15,15 @@ public class WydarzenieOnline extends Wydarzenie {
     }
     
     public WydarzenieOnline(String nazwa, String data, String godzinaStart, int czasTrwania, int id, String linkDoWydarzenia){       
-        
+
+        this.nazwa = nazwa;
+        this.data = data;
+        this.godzinaStart = godzinaStart;
+        this.czasTrwania = czasTrwania;
+        this.id = id;
+        this.linkDoWydarzenia = linkDoWydarzenia;
+        this.typWydarzenia = "Online";
+
     }
 
     public WydarzenieOnline(){

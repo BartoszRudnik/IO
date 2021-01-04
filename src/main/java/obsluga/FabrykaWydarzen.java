@@ -2,20 +2,18 @@ package obsluga;
 
 public class FabrykaWydarzen implements Fabryka {
 
-    public Wydarzenie noweWydarzenie(String typWydarzenia){
+    public Wydarzenie noweWydarzenie(String typWydarzenia) {
 
-        if(typWydarzenia.equalsIgnoreCase("Stacjonarne")){
+        if (typWydarzenia.equalsIgnoreCase("Stacjonarne")) {
 
             return new WydarzenieStacjonarne();
 
-        }
-        else if(typWydarzenia.equalsIgnoreCase("Online")){
+        } else if (typWydarzenia.equalsIgnoreCase("Online")) {
 
             return new WydarzenieOnline();
 
-        }
-        else
-            return null;
+        } else
+            throw new IllegalArgumentException("Wydarzenie musi byc Stacjonarne albo Online");
 
     }
 
