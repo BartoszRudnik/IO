@@ -1,7 +1,6 @@
 package testy;
 
 import obsluga.TestControl;
-import obsluga.TestEntity;
 import obsluga.Wydarzenie;
 import org.junit.Before;
 import org.junit.FixMethodOrder;
@@ -17,7 +16,7 @@ import java.util.List;
 import static org.junit.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-@Category({TestEntity.class, TestControl.class})
+@Category({TestControl.class})
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class AplikacjaPracownikTest {
 
