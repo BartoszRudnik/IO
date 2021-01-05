@@ -4,18 +4,14 @@ import obsluga.Fabryka;
 import obsluga.FabrykaWydarzen;
 import obsluga.Wydarzenie;
 import org.junit.Before;
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.ExpectedException;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class FabrykaTest {
 
     Dane dane = new Dane();
-
-    @Rule
-    public ExpectedException exception = ExpectedException.none();
 
     @Before
     public void setUp(){
@@ -36,9 +32,9 @@ public class FabrykaTest {
 
         }
 
-        exception.expect(IllegalArgumentException.class);
-        exception.expectMessage("Wydarzenie musi byc Stacjonarne albo Online");
-        fabryka.noweWydarzenie(daneWydarzen[2][0]);
+        Throwable exception = assertThrows(
+                IllegalArgumentException.class, () -> fabryka.noweWydarzenie(daneWydarzen[2][0]));
+        assertEquals("Wydarzenie musi byc Stacjonarne albo Online", exception.getMessage());
 
     }
 
