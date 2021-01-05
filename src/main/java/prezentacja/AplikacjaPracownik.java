@@ -39,10 +39,16 @@ public class AplikacjaPracownik {
     }
 
     public AplikacjaPracownik(List<Wydarzenie> wydarzenia, List<DaneEpidemiologiczne> dane){
-        
+
+        this.wydarzenia = wydarzenia;
+        this.daneEpidemiologiczne = dane;
+
     }
 
     public AplikacjaPracownik(){
+
+        wydarzenia = new ArrayList<>();
+        daneEpidemiologiczne = new ArrayList<>();
 
     }
     
@@ -93,13 +99,15 @@ public class AplikacjaPracownik {
 
     }
     
-    public void ograniczLiczbeUczestnikow(int nowyLimit, Wydarzenie wydarzenie){
+    public void ograniczLiczbeMiejsc(int nowyLimit, Wydarzenie wydarzenie){
 
         if(wydarzenie.getTypWydarzenia().equalsIgnoreCase("Stacjonarne")){
             wydarzenie.setLiczbaMiejsc(nowyLimit);
         }
-        else
+        else {
             System.out.println("Liczbe miejsc mozna ograniczyc wylacznie dla wydarzen stacjonarnych!");
+            throw new IllegalArgumentException("Wydarzenie musi byc stacjonarne");
+        }
 
     }
 

@@ -6,34 +6,41 @@ import obsluga.WydarzenieStacjonarne;
 
 public class Dane {
 
-    private Wydarzenie[] wydarzeniaStacjonarne = {new WydarzenieStacjonarne("kurs tanca", "20.07.2021", "15:30", 60, 1, 25),
-            new WydarzenieStacjonarne("szycie na maszynie", "24.03.2021", "17:45", 45, 2, 10),
-            new WydarzenieStacjonarne("gotowanie", "30.07.2021", "12:15", 120, 3, 12)};
+    private final Wydarzenie[] wydarzeniaStacjonarne = {new WydarzenieStacjonarne("Wroclaw","kurs tanca", "20.07.2021", "15:30", 60, 1, 25),
+            new WydarzenieStacjonarne("Warszawa","szycie na maszynie", "24.03.2021", "17:45", 45, 2, 10),
+            new WydarzenieStacjonarne("Szczecin","gotowanie", "30.07.2021", "12:15", 120, 3, 12)};
 
-    private Wydarzenie[] wydarzeniaOnline = {new WydarzenieOnline("kurs tanca", "20.07.2021", "15:30", 60, 1, "taniec.pl"),
+    private final Wydarzenie[] wydarzeniaOnline = {new WydarzenieOnline("kurs tanca", "20.07.2021", "15:30", 60, 1, "taniec.pl"),
             new WydarzenieOnline("szycie na maszynie", "24.03.2021", "17:45", 45, 2, "szycieMaszyna.pl"),
             new WydarzenieOnline("gotowanie", "30.07.2021", "12:15", 120, 3, "gotowanie.pl")};
 
-    private String[][] daneWydarzen = new String[][]{{"Stacjonarne", "kurs tance", "20.07.2021", "15:30"},
-            {"Online", "szycie na maszynie", "24.03.2021", "17:45", "link.pl"},
-            {"Stacjonarne", "gotowanie", "30.07.2021", "12:15"},
-            {"Mieszane", "pilka recza", "29.05.2021", "15:30"}};
+    private final String[][] daneWydarzenString = new String[][]{{"Stacjonarne", "kurs tanca", "20.07.2021", "15:30", " ", "Wroclaw"},
+            {"Stacjonarne", "szycie na maszynie", "24.03.2021", "17:45", " ", "Warszawa"},
+            {"Stacjonarne", "gotowanie", "30.07.2021", "12:15", " ", "Szczecin"}};
 
-    private Wydarzenie[] wyszukajWydarzenieTrue = {new WydarzenieStacjonarne("gotowanie", "30.07.2021", "12:15", 120, 3, 12),
+    private final String[][] daneWydarzenOnlineString = new String[][]{{"Online", "kurs tanca", "20.07.2021", "15:30", " ", "Wroclaw"},
+            {"Online", "szycie na maszynie", "24.03.2021", "17:45", " ", "Warszawa"},
+            {"Online", "gotowanie", "30.07.2021", "12:15", " ", "Szczecin"}};
+
+    private final int [][] daneWydarzenInt = new  int[][]{{60, 1, 25}, {45, 2, 10}, {120, 3, 12}};
+
+    private final Wydarzenie[] wyszukajWydarzenieTrue = {new WydarzenieStacjonarne("Szcecin", "gotowanie", "30.07.2021", "12:15", 120, 3, 12),
             new WydarzenieOnline("Joga", "30.07.2021", "12:15", 120, 4, "joga.pl")};
 
-    private Wydarzenie[] wyszukajWydarzenieFalse = {new WydarzenieStacjonarne("koszykowka", "30.07.2021", "12:15", 120, 5, 12)};
+    private final Wydarzenie[] wyszukajWydarzenieFalse = {new WydarzenieStacjonarne("Olsztyn","koszykowka", "30.07.2021", "12:15", 120, 5, 12)};
 
-    private Wydarzenie[] wszystkieWydarzenia = {new WydarzenieStacjonarne("kurs tanca", "20.07.2021", "15:30", 60, 1, 25),
-            new WydarzenieStacjonarne("szycie na maszynie", "24.03.2021", "17:45", 45, 2, 10),
-            new WydarzenieStacjonarne("gotowanie", "30.07.2021", "12:15", 120, 3, 12),
+    private final Wydarzenie[] wszystkieWydarzenia = {new WydarzenieStacjonarne("Wroclaw","kurs tanca", "20.07.2021", "15:30", 60, 1, 25),
+            new WydarzenieStacjonarne("Warszawa", "szycie na maszynie", "24.03.2021", "17:45", 45, 2, 10),
+            new WydarzenieStacjonarne("Szcecin","gotowanie", "30.07.2021", "12:15", 120, 3, 12),
             new WydarzenieOnline("kurs tanca", "20.07.2021", "15:30", 60, 1, "taniec.pl"),
             new WydarzenieOnline("szycie na maszynie", "24.03.2021", "17:45", 45, 2, "szycieMaszyna.pl"),
             new WydarzenieOnline("Joga", "30.07.2021", "12:15", 120, 4, "joga.pl")};
 
-    private String [] daneWydarzenFabrykaStacjonarne = {"Stacjonarne", "Stacjonarne", "Stacjonarne", "Mieszane"};
+    private final String [] daneWydarzenFabrykaStacjonarne = {"Stacjonarne", "Stacjonarne", "Stacjonarne", "Mieszane"};
 
-    private String [] daneWydarzenFabrykaOnline = {"Online", "Online", "Online"};
+    private final String [] daneWydarzenFabrykaOnline = {"Online", "Online", "Online"};
+
+    private final int [] nowaLiczbaMiejsc = {34, 80, 45};
 
     public String[] getDaneWydarzenFabrykaOnline() {
         return daneWydarzenFabrykaOnline;
@@ -43,59 +50,39 @@ public class Dane {
         return wyszukajWydarzenieTrue;
     }
 
-    public void setWyszukajWydarzenieTrue(Wydarzenie[] wyszukajWydarzenieTrue) {
-        this.wyszukajWydarzenieTrue = wyszukajWydarzenieTrue;
-    }
-
-    public void setDaneWydarzenFabrykaOnline(String[] daneWydarzenFabrykaOnline) {
-        this.daneWydarzenFabrykaOnline = daneWydarzenFabrykaOnline;
-    }
-
     public String[] getDaneWydarzenFabrykaStacjonarne() {
         return daneWydarzenFabrykaStacjonarne;
-    }
-
-    public void setDaneWydarzenFabrykaStacjonarne(String[] daneWydarzenFabrykaStacjonarne) {
-        this.daneWydarzenFabrykaStacjonarne = daneWydarzenFabrykaStacjonarne;
     }
 
     public Wydarzenie[] getWydarzeniaStacjonarne() {
         return wydarzeniaStacjonarne;
     }
 
-    public void setWydarzeniaStacjonarne(Wydarzenie[] wydarzeniaStacjonarne) {
-        this.wydarzeniaStacjonarne = wydarzeniaStacjonarne;
-    }
-
-    public String[][] getDaneWydarzen() {
-        return daneWydarzen;
-    }
-
-    public void setDaneWydarzen(String[][] daneWydarzen) {
-        this.daneWydarzen = daneWydarzen;
+    public String[][] getDaneWydarzenString() {
+        return daneWydarzenString;
     }
 
     public Wydarzenie[] getWydarzeniaOnline() {
         return wydarzeniaOnline;
     }
 
-    public void setWydarzeniaOnline(Wydarzenie[] wydarzeniaOnline) {
-        this.wydarzeniaOnline = wydarzeniaOnline;
-    }
-
     public Wydarzenie[] getWszystkieWydarzenia() {
         return wszystkieWydarzenia;
-    }
-
-    public void setWszystkieWydarzenia(Wydarzenie[] wszystkieWydarzenia) {
-        this.wszystkieWydarzenia = wszystkieWydarzenia;
     }
 
     public Wydarzenie[] getWyszukajWydarzenieFalse() {
         return wyszukajWydarzenieFalse;
     }
 
-    public void setWyszukajWydarzenieFalse(Wydarzenie[] wyszukajWydarzenieFalse) {
-        this.wyszukajWydarzenieFalse = wyszukajWydarzenieFalse;
+    public int[][] getDaneWydarzenInt() {
+        return daneWydarzenInt;
+    }
+
+    public String[][] getDaneWydarzenOnlineString() {
+        return daneWydarzenOnlineString;
+    }
+
+    public int[] getNowaLiczbaMiejsc() {
+        return nowaLiczbaMiejsc;
     }
 }

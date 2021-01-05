@@ -25,8 +25,9 @@ public class WydarzenieStacjonarne extends Wydarzenie {
         this.miejsce = miejsce;
     }
 
-    public WydarzenieStacjonarne(String nazwa, String data, String godzinaStart, int czasTrwania, int id, int liczbaMiejsc){
+    public WydarzenieStacjonarne(String miejsce, String nazwa, String data, String godzinaStart, int czasTrwania, int id, int liczbaMiejsc){
 
+        this.miejsce = miejsce;
         this.nazwa = nazwa;
         this.data = data;
         this.godzinaStart = godzinaStart;
