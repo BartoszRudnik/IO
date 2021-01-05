@@ -1,17 +1,17 @@
 package testy;
 
-import obsluga.Fabryka;
-import obsluga.FabrykaWydarzen;
-import obsluga.Wydarzenie;
+import obsluga.*;
 import org.junit.Before;
+import org.junit.experimental.categories.Category;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
+@Category({TestControl.class, TestEntity.class})
 public class FabrykaTest {
 
-    Dane dane = new Dane();
+    private Dane dane = new Dane();
 
     @Before
     public void setUp(){
@@ -19,7 +19,7 @@ public class FabrykaTest {
     }
 
     @Test
-    public void noweWydarzenieIllegalArgumentException() {
+    public void testNoweWydarzenieIllegalArgumentException() {
 
         Fabryka fabryka = new FabrykaWydarzen();
         String [] daneWydarzen = dane.getDaneWydarzenFabrykaStacjonarne();
@@ -31,7 +31,7 @@ public class FabrykaTest {
     }
 
     @Test
-    public void noweWydarzenieStacjonarne() throws Exception {
+    public void testNoweWydarzenieStacjonarne() throws Exception {
 
         Fabryka fabryka = new FabrykaWydarzen();
         String [] daneWydarzen = dane.getDaneWydarzenFabrykaStacjonarne();
@@ -47,7 +47,7 @@ public class FabrykaTest {
     }
 
     @Test
-    public void noweWydarzenieOnline() throws Exception{
+    public void testNoweWydarzenieOnline() throws Exception{
 
         Fabryka fabryka = new FabrykaWydarzen();
         String [] daneWydarzen = dane.getDaneWydarzenFabrykaOnline();
