@@ -19,22 +19,46 @@ public class FabrykaTest {
     }
 
     @Test
-    public void noweWydarzenieTest() throws Exception {
+    public void noweWydarzenieIllegalArgumentException() {
 
         Fabryka fabryka = new FabrykaWydarzen();
-        String [][] daneWydarzen = dane.getDaneWydarzen();
-        Wydarzenie [] wydarzenia = dane.getWydarzenia();
+        String [] daneWydarzen = dane.getDaneWydarzenFabrykaStacjonarne();
 
-        for(int i = 0; i < dane.getWydarzenia().length; i++){
+        Throwable exception = assertThrows(
+                IllegalArgumentException.class, () -> fabryka.noweWydarzenie(daneWydarzen[3]));
+        assertEquals("Wydarzenie musi byc Stacjonarne albo Online", exception.getMessage());
 
-            Wydarzenie wydarzenie = fabryka.noweWydarzenie(daneWydarzen[i][0]);
-            assertEquals(wydarzenia[i].getClass(), wydarzenie.getClass());
+    }
+
+    @Test
+    public void noweWydarzenieStacjonarne() throws Exception {
+
+        Fabryka fabryka = new FabrykaWydarzen();
+        String [] daneWydarzen = dane.getDaneWydarzenFabrykaStacjonarne();
+        Wydarzenie [] wydarzenia = dane.getWydarzeniaStacjonarne();
+
+        for(int i = 0; i < daneWydarzen.length - 1; i++){
+
+            Wydarzenie wydarzenie = fabryka.noweWydarzenie(daneWydarzen[i]);
+            assertEquals(wydarzenia[i].getClass(), wydarzenie.getClass(), "Wydarzenie powinno byc stacjonarne");
 
         }
 
-        Throwable exception = assertThrows(
-                IllegalArgumentException.class, () -> fabryka.noweWydarzenie(daneWydarzen[2][0]));
-        assertEquals("Wydarzenie musi byc Stacjonarne albo Online", exception.getMessage());
+    }
+
+    @Test
+    public void noweWydarzenieOnline() throws Exception{
+
+        Fabryka fabryka = new FabrykaWydarzen();
+        String [] daneWydarzen = dane.getDaneWydarzenFabrykaOnline();
+        Wydarzenie [] wydarzenia = dane.getWydarzeniaOnline();
+
+        for(int i = 0; i < daneWydarzen.length - 1; i++){
+
+            Wydarzenie wydarzenie = fabryka.noweWydarzenie(daneWydarzen[i]);
+            assertEquals(wydarzenia[i].getClass(), wydarzenie.getClass(), "Wydarzenie powinno byc online");
+
+        }
 
     }
 
