@@ -82,7 +82,9 @@ public class WyszukiwaczWydarzen {
 
     }
 
-    public void czteryAtrybuty(String nazwaWydarzenia, String typWydarzenia, String miejsceWydarzenia, String dataWydarzenia, ArrayList<Wydarzenie> szukaneWydarzenia){
+    public List<Wydarzenie> czteryAtrybuty(String nazwaWydarzenia, String typWydarzenia, String miejsceWydarzenia, String dataWydarzenia){
+
+        List<Wydarzenie> szukaneWydarzenia = new ArrayList<>();
 
         for(Wydarzenie wyd : wydarzenia) {
 
@@ -91,9 +93,13 @@ public class WyszukiwaczWydarzen {
 
         }
 
+        return szukaneWydarzenia;
+
     }
 
-    public void trzyAtrybuty(String nazwaWydarzenia, String typWydarzenia, String miejsceWydarzenia, String dataWydarzenia, ArrayList<Wydarzenie> szukaneWydarzenia){
+    public List<Wydarzenie> trzyAtrybuty(String nazwaWydarzenia, String typWydarzenia, String miejsceWydarzenia, String dataWydarzenia){
+
+        List<Wydarzenie> szukaneWydarzenia = new ArrayList<>();
 
         for(Wydarzenie wyd : wydarzenia){
 
@@ -124,9 +130,13 @@ public class WyszukiwaczWydarzen {
 
         }
 
+        return  szukaneWydarzenia;
+
     }
 
-    public void dwaAtrybuty(String nazwaWydarzenia, String typWydarzenia, String miejsceWydarzenia, String dataWydarzenia, ArrayList<Wydarzenie> szukaneWydarzenia){
+    public List<Wydarzenie> dwaAtrybuty(String nazwaWydarzenia, String typWydarzenia, String miejsceWydarzenia, String dataWydarzenia){
+
+        List<Wydarzenie> szukaneWydarzenia = new ArrayList<>();
 
         for(Wydarzenie wyd : wydarzenia){
 
@@ -169,9 +179,13 @@ public class WyszukiwaczWydarzen {
 
         }
 
+        return szukaneWydarzenia;
+
     }
 
-    public void jedenAtrybut(String nazwaWydarzenia, String typWydarzenia, String miejsceWydarzenia, String dataWydarzenia, ArrayList<Wydarzenie> szukaneWydarzenia){
+    public List<Wydarzenie> jedenAtrybut(String nazwaWydarzenia, String typWydarzenia, String miejsceWydarzenia, String dataWydarzenia){
+
+        List<Wydarzenie> szukaneWydarzenia = new ArrayList<>();
 
         for(Wydarzenie wyd : wydarzenia){
 
@@ -201,6 +215,8 @@ public class WyszukiwaczWydarzen {
             }
 
         }
+
+        return  szukaneWydarzenia;
 
     }
 

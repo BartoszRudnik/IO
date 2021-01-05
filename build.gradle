@@ -8,6 +8,7 @@ repositories {
 
 dependencies {
     implementation 'junit:junit:4.12'
+    implementation 'org.apache.commons:commons-collections4:4.4'
     compile 'org.junit.jupiter:junit-jupiter:5.6.3'
 }
 

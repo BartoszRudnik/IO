@@ -68,7 +68,7 @@ public class AplikacjaKlient {
     public List<Wydarzenie> zobaczWydarzenia(String nazwaWydarzenia, String typWydarzenia, String miejsceWydarzenia, String dataWydarzenia){
 
         WyszukiwaczWydarzen wyszukaj = new WyszukiwaczWydarzen(wydarzenia);
-        ArrayList<Wydarzenie> szukaneWydarzenia = new ArrayList<>();
+        List<Wydarzenie> szukaneWydarzenia = new ArrayList<>();
 
         int liczbaAtrybutow;
 
@@ -80,13 +80,13 @@ public class AplikacjaKlient {
                 throw new Exception();
 
             if(liczbaAtrybutow == 4)
-                wyszukaj.czteryAtrybuty(nazwaWydarzenia, typWydarzenia, miejsceWydarzenia, dataWydarzenia, szukaneWydarzenia);
+                szukaneWydarzenia = wyszukaj.czteryAtrybuty(nazwaWydarzenia, typWydarzenia, miejsceWydarzenia, dataWydarzenia);
             if(liczbaAtrybutow == 3)
-                wyszukaj.trzyAtrybuty(nazwaWydarzenia, typWydarzenia, miejsceWydarzenia, dataWydarzenia, szukaneWydarzenia);
+                szukaneWydarzenia = wyszukaj.trzyAtrybuty(nazwaWydarzenia, typWydarzenia, miejsceWydarzenia, dataWydarzenia);
             if(liczbaAtrybutow == 2)
-                wyszukaj.dwaAtrybuty(nazwaWydarzenia, typWydarzenia, miejsceWydarzenia, dataWydarzenia, szukaneWydarzenia);
+                szukaneWydarzenia = wyszukaj.dwaAtrybuty(nazwaWydarzenia, typWydarzenia, miejsceWydarzenia, dataWydarzenia);
             if(liczbaAtrybutow == 1)
-                wyszukaj.jedenAtrybut(nazwaWydarzenia, typWydarzenia, miejsceWydarzenia, dataWydarzenia, szukaneWydarzenia);
+                szukaneWydarzenia = wyszukaj.jedenAtrybut(nazwaWydarzenia, typWydarzenia, miejsceWydarzenia, dataWydarzenia);
 
         } catch (Exception e) {
             System.out.println("Podano zla liczbe atrybutów");

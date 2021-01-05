@@ -3,9 +3,11 @@ package testy;
 import obsluga.TestEntity;
 import obsluga.Wydarzenie;
 import org.junit.Before;
+import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.junit.runner.RunWith;
+import org.junit.runners.MethodSorters;
 import org.junit.runners.Parameterized;
 
 import java.util.Arrays;
@@ -14,6 +16,7 @@ import java.util.Collection;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 @Category({TestEntity.class})
 @RunWith(Parameterized.class)
 public class WydarzenieTest {
