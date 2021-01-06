@@ -3,12 +3,15 @@ package testyJMockit;
 import mockit.Expectations;
 import mockit.Injectable;
 import mockit.Tested;
+import mockit.integration.junit4.JMockit;
 import obsluga.Wydarzenie;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import prezentacja.WyszukiwaczWydarzen;
 
 import static org.junit.Assert.assertTrue;
 
+@RunWith(JMockit.class)
 public class WyszukiwaczWydarzenMock {
 
     @Tested

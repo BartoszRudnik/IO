@@ -21,6 +21,10 @@ public class WyszukiwaczWydarzen {
         this.wydarzenia = wydarzenia;
     }
 
+    public WyszukiwaczWydarzen(){
+
+    }
+
     private boolean wyszukajWydarzenieNazwaWydarzenia(Wydarzenie wydarzenie, String nazwaWydarzenia){
 
         return wydarzenie.getNazwa().equalsIgnoreCase(nazwaWydarzenia);
