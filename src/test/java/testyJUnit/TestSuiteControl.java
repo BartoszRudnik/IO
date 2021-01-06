@@ -1,12 +1,12 @@
-package testy;
+package testyJUnit;
 
-import obsluga.TestEntity;
+import obsluga.TestControl;
 import org.junit.experimental.categories.Categories;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 
 @Suite.SuiteClasses({AplikacjaPracownikTest.class, FabrykaTest.class, WydarzenieTest.class, WyszukiwaczWydarzenTest.class})
 @RunWith(Categories.class)
-@Categories.IncludeCategory(TestEntity.class)
-public class TestSuiteEntity {
+@Categories.IncludeCategory(TestControl.class)
+public class TestSuiteControl {
 }

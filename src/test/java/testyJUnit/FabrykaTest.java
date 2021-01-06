@@ -1,4 +1,4 @@
-package testy;
+package testyJUnit;
 
 import obsluga.*;
 import org.junit.Before;

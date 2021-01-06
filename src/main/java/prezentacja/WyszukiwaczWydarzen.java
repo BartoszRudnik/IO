@@ -33,7 +33,7 @@ public class WyszukiwaczWydarzen {
 
     }
 
-    private boolean wyszukajWydarzenieMiejsceWydarzenia(Wydarzenie wydarzenie, String miejsceWydarzenia){
+    public boolean wyszukajWydarzenieMiejsceWydarzenia(Wydarzenie wydarzenie, String miejsceWydarzenia){
 
         if(wydarzenie.getTypWydarzenia().equalsIgnoreCase("Online"))
             return false;
@@ -42,7 +42,7 @@ public class WyszukiwaczWydarzen {
 
     }
 
-    private boolean wyszukajWydarzenieDataWydarzenia(Wydarzenie wydarzenie, String dataWydarzenia){
+    public boolean wyszukajWydarzenieDataWydarzenia(Wydarzenie wydarzenie, String dataWydarzenia){
 
         return wydarzenie.getData().equalsIgnoreCase(dataWydarzenia);
 

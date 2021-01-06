@@ -1,4 +1,4 @@
-package testy;
+package testyJUnit;
 
 import obsluga.TestControl;
 import obsluga.Wydarzenie;
