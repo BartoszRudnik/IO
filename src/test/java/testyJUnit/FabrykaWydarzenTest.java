@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 @Category({TestControl.class, TestEntity.class})
-public class FabrykaTest {
+public class FabrykaWydarzenTest {
 
     Dane dane = new Dane();
     Fabryka fabryka = new FabrykaWydarzen();
