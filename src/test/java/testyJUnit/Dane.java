@@ -10,6 +10,10 @@ public class Dane {
             new WydarzenieStacjonarne("Warszawa","szycie na maszynie", "24.03.2021", "17:45", 45, 2, 10),
             new WydarzenieStacjonarne("Szczecin","gotowanie", "30.07.2021", "12:15", 120, 3, 12)};
 
+    private final String [] daneWydarzenFabrykaStacjonarne = {"Stacjonarne", "Stacjonarne", "Stacjonarne", "Mieszane"};
+
+    private final String [] daneWydarzenFabrykaOnline = {"Online", "Online", "Online"};
+
     private final Wydarzenie[] wydarzeniaOnline = {new WydarzenieOnline("kurs tanca", "20.07.2021", "15:30", 60, 1, "taniec.pl"),
             new WydarzenieOnline("szycie na maszynie", "24.03.2021", "17:45", 45, 2, "szycieMaszyna.pl"),
             new WydarzenieOnline("gotowanie", "30.07.2021", "12:15", 120, 3, "gotowanie.pl")};
@@ -35,10 +39,6 @@ public class Dane {
             new WydarzenieOnline("kurs tanca", "20.07.2021", "15:30", 60, 1, "taniec.pl"),
             new WydarzenieOnline("szycie na maszynie", "24.03.2021", "17:45", 45, 2, "szycieMaszyna.pl"),
             new WydarzenieOnline("Joga", "30.07.2021", "12:15", 120, 4, "joga.pl")};
-
-    private final String [] daneWydarzenFabrykaStacjonarne = {"Stacjonarne", "Stacjonarne", "Stacjonarne", "Mieszane"};
-
-    private final String [] daneWydarzenFabrykaOnline = {"Online", "Online", "Online"};
 
     private final int [] nowaLiczbaMiejsc = {34, 80, 45};
 

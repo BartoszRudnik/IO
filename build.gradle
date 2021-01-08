@@ -9,11 +9,13 @@ repositories {
 dependencies {
 
     testCompile "org.jmockit:jmockit:1.27"
-    implementation 'junit:junit:4.12'
-    compile 'org.junit.jupiter:junit-jupiter:5.6.3'
+    testImplementation 'junit:junit:4.12'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.3'
 
 }
 
 test {
+
     useJUnitPlatform()
+
 }
