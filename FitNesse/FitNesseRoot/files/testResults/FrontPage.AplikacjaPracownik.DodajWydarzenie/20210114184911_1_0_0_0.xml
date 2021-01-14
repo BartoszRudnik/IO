@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<testResults>
+  <FitNesseVersion>v20201213</FitNesseVersion>
+  <rootPath>FrontPage.AplikacjaPracownik.DodajWydarzenie</rootPath>
+  <result>
+    <counts>
+      <right>8</right>
+      <wrong>0</wrong>
+      <ignores>0</ignores>
+      <exceptions>0</exceptions>
+    </counts>
+    <date>2021-01-14T18:49:11+01:00</date>
+    <runTimeInMillis>15</runTimeInMillis>
+    <content>&lt;div class="collapsible closed"&gt;&lt;ul&gt;&lt;li&gt;&lt;a href='#' class='expandall'&gt;Expand&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href='#' class='collapseall'&gt;Collapse&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
+	&lt;p class="title"&gt;Included page: &lt;a href="FrontPage.AplikacjaPracownik.SetUp"&gt;.FrontPage.AplikacjaPracownik.SetUp&lt;/a&gt; &lt;a href="FrontPage.AplikacjaPracownik.SetUp?edit&amp;amp;redirectToReferer=true&amp;amp;redirectAction=" class="edit"&gt;(edit)&lt;/a&gt;&lt;/p&gt;
+	&lt;div&gt;&lt;table&gt;
+	&lt;tr&gt;
+		&lt;td&gt;fitnesseTesty.SetUp&lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;br/&gt;&lt;table&gt;
+	&lt;tr&gt;
+		&lt;td colspan="3"&gt;fitnesseTesty.DodawanieWydarzeniaFitnesse&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;dane&lt;/td&gt;
+		&lt;td&gt;dodajWydarzenie?&lt;/td&gt;
+		&lt;td&gt;liczbaWydarzen?&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;15, Taniec, 15.02.2021, 15:30, Stacjonarne, 60, 1, taniec.pl, Wroclaw&lt;/td&gt;
+		&lt;td class="pass"&gt;true&lt;/td&gt;
+		&lt;td class="pass"&gt;1&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;12, Gotowanie, 17.02.2021, 18:25, Stacjonarne, 45, 2, gotowanie.pl, Legnica&lt;/td&gt;
+		&lt;td class="pass"&gt;true&lt;/td&gt;
+		&lt;td class="pass"&gt;2&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;30, Pilka nozna, 25.02.2021, 17:30, Online, 90, 3, pilka.pl, Warszawa&lt;/td&gt;
+		&lt;td class="pass"&gt;true&lt;/td&gt;
+		&lt;td class="pass"&gt;3&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;8, Jazda na nartach, 30.03.2021, 12:15, Stacjonarne, 120, 4, narty.pl, Karpacz&lt;/td&gt;
+		&lt;td class="pass"&gt;true&lt;/td&gt;
+		&lt;td class="pass"&gt;4&lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/table&gt;
+</content>
+    <relativePageName>DodajWydarzenie</relativePageName>
+  </result>
+  <executionLog>
+    <testSystem>fit:fit.FitServer</testSystem>
+    <command>java -cp /home/bartosz/IdeaProjects/IO/FitNesse/fitnesse-standalone.jar:/home/bartosz/IdeaProjects/IO/build/classes/java/main fit.FitServer bartosz-MRC-WX0 39607 3863</command>
+    <exitCode>0</exitCode>
+    <stdOut></stdOut>
+    <stdErr></stdErr>
+  </executionLog>
+  <finalCounts>
+    <right>1</right>
+    <wrong>0</wrong>
+    <ignores>0</ignores>
+    <exceptions>0</exceptions>
+  </finalCounts>
+  <totalRunTimeInMillis>356</totalRunTimeInMillis>
+</testResults>
+

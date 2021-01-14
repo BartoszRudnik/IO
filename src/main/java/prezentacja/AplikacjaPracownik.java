@@ -105,7 +105,6 @@ public class AplikacjaPracownik {
             wydarzenie.setLiczbaMiejsc(nowyLimit);
         }
         else {
-            System.out.println("Liczbe miejsc mozna ograniczyc wylacznie dla wydarzen stacjonarnych!");
             throw new IllegalArgumentException("Wydarzenie musi byc stacjonarne");
         }
 

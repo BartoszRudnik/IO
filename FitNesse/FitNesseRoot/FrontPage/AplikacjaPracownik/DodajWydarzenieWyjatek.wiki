@@ -1,0 +1,10 @@
+---
+Test
+---
+!|fitnesseTesty.DodajWydarzenieWyjatekFitnesse|
+|dane|DodajWydarzenieWyjatek?|rozmiarWydarzenia?|
+|15, Taniec, 15.02.2021, 15:30, Nie Stacjonarne, 60, 1, taniec.pl, Wroclaw|false|0|
+|30, Pilka nozna, 25.02.2021, 17:30, W sieci, 90, 3, pilka.pl, Warszawa|false|0| 
+|8, Jazda na nartach, 30.03.2021, 12:15, Stacjonarne, 120, 4, narty.pl, Karpacz|true|1|
+|12, Gotowanie, 17.02.2021, 18:25, W internecie, 45, 2, gotowanie.pl, Legnica|false|1|
+|13, jazda na rowerze, 10.05.2021, 10:30, Online, 100, 5, rower.pl, Szczecin|true|2|

@@ -1,0 +1,10 @@
+---
+Test
+---
+!include DodajWydarzenie
+!|fitnesseTesty.OgraniczLiczbeMiejscFitnesse|
+|i|nowyLimit|ograniczLiczbeMiejsc?|liczbaMiejsc?|
+|0|12|true|12|
+|1|35|true|35|
+|2|95|false|0|
+|3|8|true|8|
