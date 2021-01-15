@@ -1,9 +1,6 @@
 package fitnesseTesty;
 
 import fit.ColumnFixture;
-import obsluga.Wydarzenie;
-
-import java.util.List;
 
 public class DodawanieWydarzeniaFitnesse extends ColumnFixture {
 

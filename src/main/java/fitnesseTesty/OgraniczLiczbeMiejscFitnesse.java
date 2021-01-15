@@ -1,7 +1,6 @@
 package fitnesseTesty;
 
 import fit.ColumnFixture;
-import obsluga.Wydarzenie;
 
 public class OgraniczLiczbeMiejscFitnesse extends ColumnFixture {
 
@@ -24,7 +23,12 @@ public class OgraniczLiczbeMiejscFitnesse extends ColumnFixture {
     }
 
     public int liczbaMiejsc(){
-        return SetUp.aplikacjaPracownik.getWydarzenia().get(i).getLiczbaMiejsc();
+
+        if(SetUp.aplikacjaPracownik.getWydarzenia().get(i).getTypWydarzenia().equalsIgnoreCase("Online"))
+            return Integer.MAX_VALUE;
+        else
+            return SetUp.aplikacjaPracownik.getWydarzenia().get(i).getLiczbaMiejsc();
+
     }
 
 }
